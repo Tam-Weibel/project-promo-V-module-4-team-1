@@ -32,6 +32,7 @@ function Form({
           name="name"
           id="nameId"
           maxLength="30"
+          required
         />
         <input
           value={formData.slogan}
@@ -42,6 +43,7 @@ function Form({
           id="sloganId"
           placeholder="Slogan del proyecto"
           maxLength="30"
+          required
         />
         <input
           value={formData.repo}
@@ -52,6 +54,7 @@ function Form({
           id="repoId"
           placeholder="https://github.com/User/Repo/"
           maxLength="30"
+          required
         />
         <input
           value={formData.demo}
@@ -62,6 +65,7 @@ function Form({
           name="demo"
           id="demoId"
           maxLength="30"
+          required
         />
         <input
           value={formData.technologies}
@@ -72,6 +76,7 @@ function Form({
           name="technologies"
           id="techId"
           maxLength="30"
+          required
         />
         <textarea
           value={formData.desc}
@@ -82,6 +87,7 @@ function Form({
           name="desc"
           id="descId"
           maxLength="150"
+          required
         ></textarea>
       </fieldset>
 
@@ -100,6 +106,7 @@ function Form({
           name="autor"
           id="authorId"
           maxLength="30"
+          required
         />
         <input
           value={formData.job}
@@ -110,6 +117,7 @@ function Form({
           name="job"
           id="jobId"
           maxLength="30"
+          required
         />
         <section className="boxBtns">
           <GetAvatar

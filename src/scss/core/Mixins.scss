@@ -23,3 +23,6 @@
     padding: 0 10px;
     background: linear-gradient(90deg, $darkLilac -1.57%, #c0b7e8 98.43%);
 }
+@mixin hidden{
+    display: none;
+}
