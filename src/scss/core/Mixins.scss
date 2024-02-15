@@ -1,0 +1,25 @@
+
+@mixin buttonStyles {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin displayForm{
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin commonButton{
+    font-size: 14px;
+    text-align: center;
+    align-items: center;
+    color: $white;
+    border: none;
+    height: 40px;
+    border-radius: 40px;
+    padding: 0 10px;
+    background: linear-gradient(90deg, $darkLilac -1.57%, #c0b7e8 98.43%);
+}

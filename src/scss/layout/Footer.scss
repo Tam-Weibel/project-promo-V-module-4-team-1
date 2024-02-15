@@ -1,0 +1,18 @@
+@import '../core/Variables.scss';
+.footer {
+    background-color: $violet;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    @media (min-width: 768px) {
+      &__logo {
+        height: 43px;
+        width: 115px;
+      }
+    }
+    &__logo {
+      height: 46px;
+      width: 126px;
+    }
+  }
+  
