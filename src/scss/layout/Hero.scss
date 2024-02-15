@@ -5,15 +5,15 @@
     flex-direction: column;
     padding-bottom: 20px;
     &__title{
-        font-family: $heroBtn;
-        color: $black80;
-        padding-bottom: 10px;
+        font-family: $card;
+        color: $brown;
+        padding-bottom: 2px;
     }
 
     &__text{
         font-family: $card;
         color: $black;
         font-weight: bold;
+        text-decoration: overline;
     }
 }
-
