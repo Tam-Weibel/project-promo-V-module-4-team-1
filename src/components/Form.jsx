@@ -1,6 +1,6 @@
 import GetAvatar from './GetAvatar.jsx';
 import '../scss/layout/Form.scss';
-import Card from './Card.jsx';
+import CardLink from './CardLink.jsx';
 import PropTypes from 'prop-types';
 
 function Form({
@@ -135,7 +135,7 @@ function Form({
           Crear Tarjeta
         </submit>
 
-        <Card cardLink={cardLink} hidden={hidden} />
+        <CardLink cardLink={cardLink} hidden={hidden} />
 
         <button className="btn" onClick={handleClearForm}>
           Limpiar Formulario
