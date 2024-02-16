@@ -66,6 +66,6 @@
 .hidden{
   @include hidden();
 }
-.fileSizeOk{
+.acceptedFileSize{
   @include hidden();
 }

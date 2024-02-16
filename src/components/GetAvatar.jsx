@@ -41,7 +41,7 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
         setImageSize('alert');
         return; // Salir de la función sin cargar la imagen
       } else{
-        setImageSize('fileSizeOk');
+        setImageSize('acceptedFileSize');
       }
       // añado un evento load al manejador de ficheros
       // por qué añado un evento, pues porque esto es una acción asíncrona, imaginemos que el fichero pesa 5 Gb, el navegador puede tardar unos cuantos segundos en cargar y procesar el fichero, por eso le decimos "navegador, cuando termines de cargar el fichero me ejecutas el método  image"
