@@ -32,8 +32,8 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
   };
 
   return (
-    <div className='btn'>
-      <label className='uploadLabel'>
+   
+      <label className='uploadLabel btn'>
         {text}
         <input
           type='file'
@@ -43,7 +43,8 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
           name={name}
         />
       </label>
-    </div>
+     
+    
   );
 }
 
