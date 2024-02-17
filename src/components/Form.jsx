@@ -1,6 +1,6 @@
 import GetAvatar from './GetAvatar.jsx';
 import '../scss/layout/Form.scss';
-import Card from './Card.jsx';
+import CardLink from './CardLink.jsx';
 import PropTypes from 'prop-types';
 
 function Form({
@@ -8,14 +8,15 @@ function Form({
   setFormData,
   formData,
   handleClickCreateCard,
-  hidden,
+  hideCardLink,
   cardLink,
   handleClearForm,
   setImageSize,
   imageSize,
+  missingImage
 }) {
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleClickCreateCard}>
       <h2 className="form__h2">Información</h2>
 
       <fieldset className="project">
@@ -32,6 +33,7 @@ function Form({
           name="name"
           id="nameId"
           maxLength="30"
+          required
         />
         <input
           value={formData.slogan}
@@ -42,6 +44,7 @@ function Form({
           id="sloganId"
           placeholder="Slogan del proyecto"
           maxLength="30"
+          required
         />
         <input
           value={formData.repo}
@@ -52,6 +55,7 @@ function Form({
           id="repoId"
           placeholder="https://github.com/User/Repo/"
           maxLength="30"
+          required
         />
         <input
           value={formData.demo}
@@ -62,6 +66,7 @@ function Form({
           name="demo"
           id="demoId"
           maxLength="30"
+          required
         />
         <input
           value={formData.technologies}
@@ -72,6 +77,7 @@ function Form({
           name="technologies"
           id="techId"
           maxLength="30"
+          required
         />
         <textarea
           value={formData.desc}
@@ -82,6 +88,7 @@ function Form({
           name="desc"
           id="descId"
           maxLength="150"
+          required
         ></textarea>
       </fieldset>
 
@@ -100,6 +107,7 @@ function Form({
           name="autor"
           id="authorId"
           maxLength="30"
+          required
         />
         <input
           value={formData.job}
@@ -110,6 +118,7 @@ function Form({
           name="job"
           id="jobId"
           maxLength="30"
+          required
         />
         <section className="boxBtns">
           <GetAvatar
@@ -127,16 +136,17 @@ function Form({
             setImageSize={setImageSize}
           />
         </section>
-        <p className={imageSize}>
-          {' '}
-          * La imagen seleccionada excede el tamaño máximo permitido de 50 KB.
+        <p className={`alert ${imageSize}`}>
+          * La imagen seleccionada no puede superar los 50 KB.
         </p>
-        <submit className="btn" onClick={handleClickCreateCard} {...hidden}>
+        <button type='submit' className="btn">
           Crear Tarjeta
-        </submit>
+        </button>
 
-        <Card cardLink={cardLink} hidden={hidden} />
-
+        <CardLink cardLink={cardLink} hideCardLink={hideCardLink} />
+        <p className={`alert ${missingImage}`}>
+          * Debe subir ambas fotos.
+        </p>
         <button className="btn" onClick={handleClearForm}>
           Limpiar Formulario
         </button>
@@ -150,10 +160,11 @@ Form.propTypes = {
   formData: PropTypes.object.isRequired,
   handleInput: PropTypes.func.isRequired,
   handleClickCreateCard: PropTypes.func.isRequired,
-  hidden: PropTypes.string.isRequired,
+  hideCardLink: PropTypes.string.isRequired,
   cardLink: PropTypes.string,
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
+  missingImage: PropTypes.string.isRequired
 };
 export default Form;
