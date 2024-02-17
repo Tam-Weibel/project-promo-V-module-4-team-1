@@ -2,9 +2,6 @@
 @import '../core/Mixins.scss';
 
 .cardLink {
-  max-width: 240px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   font-size: 12px;
   display: flex;
   flex-direction: column;
@@ -15,6 +12,12 @@
   }
   &__url {
     color: $green;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 240px;
+    @media (min-width: 1024px) {
+      max-width: 500px;
+    }
   }
   &__loader {
     color: $green;
@@ -28,7 +31,7 @@
     transform: translateZ(0);
     margin: 10px;
   }
-
+  
   @keyframes mulShdSpin {
     0%,
     100% {
@@ -65,9 +68,7 @@
         0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
     }
   }
-  @media (min-width: 1024px) {
-    max-width: 500px;
-  }
+  
 }
 .hidden {
   display: none;

@@ -82,7 +82,6 @@ function App() {
       image: formData.image,
       photo: formData.photo,
     });
-    console.log('han cambiado los datos introducidos');
     setUserData(localStorage.get('user'));
   }, [formData]);
 

@@ -1,4 +1,3 @@
-// import React from 'react'
 import '../scss/layout/CardLink.scss';
 import PropTypes from 'prop-types';
 
@@ -14,7 +13,7 @@ function Card({cardLink, hideCardLink}) {
         target='_blank'
         rel='noreferrer'
       >
-        <strong>{cardLink}</strong>
+        <strong className='cardLink__url'>{cardLink}</strong>
       </a>
     </section>
   );
