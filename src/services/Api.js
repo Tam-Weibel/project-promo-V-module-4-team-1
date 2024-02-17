@@ -1,5 +1,3 @@
-
-
 const callToApi = (formData) => {
     return fetch ("https://dev.adalab.es/api/projectCard", {
         method: "POST",
@@ -8,7 +6,7 @@ const callToApi = (formData) => {
     })
     .then((response) => response.json())
     .then((responseData) => {
-        return responseData;
+        return (responseData);
     })
     .catch((error)=> {
         console.error("Error calling API:", error);
@@ -25,11 +23,8 @@ const callToApi = (formData) => {
             image: formData.image.value,
             photo: formData.photo.value,
            };
-      
     });
+};
 
-      };
 
-
-  
   export default callToApi;

@@ -8,14 +8,15 @@ function Form({
   setFormData,
   formData,
   handleClickCreateCard,
-  hidden,
+  hideCardLink,
   cardLink,
   handleClearForm,
   setImageSize,
   imageSize,
+  missingImage
 }) {
   return (
-    <form className="form">
+    <form className="form" onSubmit={handleClickCreateCard}>
       <h2 className="form__h2">Información</h2>
 
       <fieldset className="project">
@@ -135,16 +136,17 @@ function Form({
             setImageSize={setImageSize}
           />
         </section>
-        <p className={imageSize}>
-          {' '}
-          * La imagen seleccionada excede el tamaño máximo permitido de 50 KB.
+        <p className={`alert ${imageSize}`}>
+          * La imagen seleccionada no puede superar los 50 KB.
         </p>
-        <submit className="btn" onClick={handleClickCreateCard} {...hidden}>
+        <button type='submit' className="btn">
           Crear Tarjeta
-        </submit>
+        </button>
 
-        <CardLink cardLink={cardLink} hidden={hidden} />
-
+        <CardLink cardLink={cardLink} hideCardLink={hideCardLink} />
+        <p className={`alert ${missingImage}`}>
+          * Debe subir ambas fotos.
+        </p>
         <button className="btn" onClick={handleClearForm}>
           Limpiar Formulario
         </button>
@@ -158,10 +160,11 @@ Form.propTypes = {
   formData: PropTypes.object.isRequired,
   handleInput: PropTypes.func.isRequired,
   handleClickCreateCard: PropTypes.func.isRequired,
-  hidden: PropTypes.string.isRequired,
+  hideCardLink: PropTypes.string.isRequired,
   cardLink: PropTypes.string,
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
+  missingImage: PropTypes.string.isRequired
 };
 export default Form;

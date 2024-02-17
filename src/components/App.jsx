@@ -22,11 +22,23 @@ function App() {
   const location = useLocation();
 
   //Variables estado
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    name: '',
+    slogan: '',
+    technologies: '',
+    demo: '',
+    repo: '',
+    desc: '',
+    autor: '',
+    job: '',
+    image: '',
+    photo: '',
+  });
   const [cardLink, setCardLink] = useState('');
-  const [hidden, setHidden] = useState('hidden');
-  const [imageSize, setImageSize] = useState('acceptedFileSize');
-
+  const [hideCardLink, setHideCardLink] = useState('hidden');
+  const [imageSize, setImageSize] = useState('hidden');
+  const [missingImage, setMissingImage] = useState('hidden');
+  const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState(
     localStorage.get('user') || {
       name: '',
@@ -50,7 +62,7 @@ function App() {
       [inputName]: inputValue,
     });
   };
- 
+
   useEffect(() => {
     if (userData) {
       setFormData(userData);
@@ -75,16 +87,23 @@ function App() {
   }, [formData]);
 
   const handleClickCreateCard = (ev) => {
-    ev.preventDefault;
-    setHidden('');
-    callToApi(formData).then((response) => {
-      setCardLink(response.cardURL);
-      console.log(response.cardURL);
-    });
+    ev.preventDefault();
+    setMissingImage('hidden');
+    if (formData.image === '' || formData.photo === '') {
+      setMissingImage('');
+    } else {
+      setHideCardLink('');
+      setMissingImage('hidden');
+      setIsLoading(true);
+      callToApi(formData).then((response) => {
+        setCardLink(response.cardURL);
+        setIsLoading(false);
+      });
+    }
   };
 
   const handleClearForm = (ev) => {
-    ev.preventDefault;
+    ev.preventDefault();
     localStorage.remove('user');
     setFormData({
       name: '',
@@ -98,21 +117,22 @@ function App() {
       image: '',
       photo: '',
     });
-    setHidden('hidden');
+    setHideCardLink('hidden');
     setCardLink('');
-    setImageSize('acceptedFileSize');
+    setImageSize('hidden');
+    setMissingImage('hidden');
   };
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path='/' element={<LandingPage />} />
         <Route
-          path="/cardProject"
+          path='/cardProject'
           element={
             <CardProject
-              hidden={hidden}
+              hideCardLink={hideCardLink}
               handleClickCreateCard={handleClickCreateCard}
               handleInput={handleInput}
               setFormData={setFormData}
@@ -121,11 +141,12 @@ function App() {
               handleClearForm={handleClearForm}
               setImageSize={setImageSize}
               imageSize={imageSize}
+              missingImage={missingImage}
             />
           }
         />
         <Route
-          path="/listProject"
+          path='/listProject'
           element={<ListProject formData={formData} />}
         />
       </Routes>

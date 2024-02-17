@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../scss/layout/Form.scss';
+import '../scss/layout/Btn.scss';
 import '../scss/core/Mixins.scss';
+import '../scss/layout/GetAvatar.scss';
 
 function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
   // creamos una propiedad de la clase que es la que vamos a usar en varios métodos para cargar la imagen
@@ -41,7 +42,7 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
         setImageSize('alert');
         return; // Salir de la función sin cargar la imagen
       } else{
-        setImageSize('acceptedFileSize');
+        setImageSize('hidden');
       }
       // añado un evento load al manejador de ficheros
       // por qué añado un evento, pues porque esto es una acción asíncrona, imaginemos que el fichero pesa 5 Gb, el navegador puede tardar unos cuantos segundos en cargar y procesar el fichero, por eso le decimos "navegador, cuando termines de cargar el fichero me ejecutas el método  image"
@@ -69,7 +70,7 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
 
   return (
     <div className='btn'>
-      <label>
+      <label className='uploadLabel'>
         {text}
         <input
           type='file'
