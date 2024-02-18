@@ -1,4 +1,4 @@
-import logoAlab from "../images/logo-adalab.png";
+import cookielogo from "../images/cookielogo1.png";
 import '../scss/core/Variables.scss';
 import '../scss/layout/Footer.scss';
 
@@ -6,7 +6,7 @@ import '../scss/layout/Footer.scss';
 function Footer () {
     return (
       <footer className="footer">        
-        <img className="footer__logo" src={logoAlab} alt="logo Adalab" />
+        <img className="footer__logo" src={cookielogo} alt="logo Adalab" />
       </footer>
 
     )

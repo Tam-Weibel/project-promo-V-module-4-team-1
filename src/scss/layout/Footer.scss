@@ -1,13 +1,15 @@
 @import '../core/Variables.scss';
 .footer {
-    background-color: $violet;
+    background-color: #ff9e96;
     display: flex;
     justify-content: center;
     padding: 20px;
+    height: 10vh;
     @media (min-width: 768px) {
       &__logo {
-        height: 43px;
-        width: 115px;
+        height: 30px;
+        width: 30px;
+        justify-content: flex-end;
       }
     }
     &__logo {
