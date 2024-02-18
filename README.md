@@ -11,7 +11,7 @@ Martes, 13 de Febrero : demo del proyecto.
 . Se nos pidió dar funcionalidad a una página cuyo objetivo es crear una ficha tipo tarjeta, donde el usuario rellenará un formulario con sus datos, pudiendo añadir trabajos personales de desarrollo de software, entre otros, junto con documentos gráficos tanto de su persona para el perfil de la tarjeta, como del propio proyecto en sí. 
 Tras la creación de la tarjeta , esta generará un link personal y una previsualización de la misma. 
 
-![Example from design](src/images/zeplin%20design.png)
+![Example from design](src/images/screen.png)
 
 El formulario había de responder a eventos tanto para la cumplimentación de campos, subida de archivos locales del usuario, guardar los datos en el navegador , por lo que está en contacto directo con una API que recoge y devuelve estos datos.
 
