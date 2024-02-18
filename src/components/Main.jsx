@@ -11,12 +11,11 @@ function Main({
   setFormData,
   formData,
   handleClickCreateCard,
-  hideCardLink,
+  hidden,
   cardLink,
   handleClearForm,
   setImageSize,
   imageSize,
-  missingImage
 }) {
   return (
     <main className="main">
@@ -29,12 +28,11 @@ function Main({
         formData={formData}
         setFormData={setFormData}
         handleClickCreateCard={handleClickCreateCard}
-        hideCardLink={hideCardLink}
+        hidden={hidden}
         cardLink={cardLink}
         handleClearForm={handleClearForm}
         setImageSize={setImageSize}
         imageSize={imageSize}
-        missingImage={missingImage}
       />
      </div>
     </main>
@@ -45,12 +43,11 @@ Main.propTypes = {
   setFormData: PropTypes.func.isRequired,
   formData: PropTypes.object.isRequired,
   handleClickCreateCard: PropTypes.func.isRequired,
-  hideCardLink: PropTypes.string.isRequired,
+  hidden: PropTypes.string.isRequired,
   cardLink: PropTypes.string,
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
-  missingImage: PropTypes.string.isRequired
 };
 
 export default Main;

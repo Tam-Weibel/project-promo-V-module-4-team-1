@@ -22,23 +22,12 @@ function App() {
   const location = useLocation();
 
   //Variables estado
-  const [formData, setFormData] = useState({
-    name: '',
-    slogan: '',
-    technologies: '',
-    demo: '',
-    repo: '',
-    desc: '',
-    autor: '',
-    job: '',
-    image: '',
-    photo: '',
-  });
+  const [formData, setFormData] = useState({});
   const [cardLink, setCardLink] = useState('');
-  const [hideCardLink, setHideCardLink] = useState('hidden');
-  const [imageSize, setImageSize] = useState('hidden');
-  const [missingImage, setMissingImage] = useState('hidden');
-  const [isLoading, setIsLoading] = useState(false);
+  const [hidden, setHidden] = useState('hidden');
+  const [imageSize, setImageSize] = useState('fileSizeOk');
+  // let imageSize = 'fileSizeOk';
+
   const [userData, setUserData] = useState(
     localStorage.get('user') || {
       name: '',
@@ -62,7 +51,7 @@ function App() {
       [inputName]: inputValue,
     });
   };
-
+ 
   useEffect(() => {
     if (userData) {
       setFormData(userData);
@@ -82,27 +71,21 @@ function App() {
       image: formData.image,
       photo: formData.photo,
     });
+    console.log('han cambiado los datos introducidos');
     setUserData(localStorage.get('user'));
   }, [formData]);
 
   const handleClickCreateCard = (ev) => {
-    ev.preventDefault();
-    setMissingImage('hidden');
-    if (formData.image === '' || formData.photo === '') {
-      setMissingImage('');
-    } else {
-      setHideCardLink('');
-      setMissingImage('hidden');
-      setIsLoading(true);
-      callToApi(formData).then((response) => {
-        setCardLink(response.cardURL);
-        setIsLoading(false);
-      });
-    }
+    ev.preventDefault;
+    setHidden('');
+    callToApi(formData).then((response) => {
+      setCardLink(response.cardURL);
+      console.log(response.cardURL);
+    });
   };
 
   const handleClearForm = (ev) => {
-    ev.preventDefault();
+    ev.preventDefault;
     localStorage.remove('user');
     setFormData({
       name: '',
@@ -116,22 +99,21 @@ function App() {
       image: '',
       photo: '',
     });
-    setHideCardLink('hidden');
+    setHidden('hidden');
     setCardLink('');
-    setImageSize('hidden');
-    setMissingImage('hidden');
+    setImageSize('fileSizeOk');
   };
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route
-          path='/cardProject'
+          path="/cardProject"
           element={
             <CardProject
-              hideCardLink={hideCardLink}
+              hidden={hidden}
               handleClickCreateCard={handleClickCreateCard}
               handleInput={handleInput}
               setFormData={setFormData}
@@ -140,12 +122,11 @@ function App() {
               handleClearForm={handleClearForm}
               setImageSize={setImageSize}
               imageSize={imageSize}
-              missingImage={missingImage}
             />
           }
         />
         <Route
-          path='/listProject'
+          path="/listProject"
           element={<ListProject formData={formData} />}
         />
       </Routes>
