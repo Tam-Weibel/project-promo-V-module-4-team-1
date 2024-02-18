@@ -10,7 +10,9 @@ function Header({ hero }) {
         <nav className="nav">
         <Link to='/' className='link'>
           <span className="nav__title">
-            <i className="fa-solid fa-laptop-code nav__title--icon"></i>
+          {/* <i class="fa-solid fa-laptop-code"></i> */}
+            <i className="fa-brands fa-themeisle  nav__title--bird"></i>
+            <i className="fa-solid fa-arrow-left-long  nav__title--arrow"></i>
           </span>
         </Link>
         <img className="nav__logo" src={logocookie} alt="logo Cookie" />

@@ -1,20 +1,88 @@
-@import '../core/Variables.scss';
+@import "../core/Variables.scss";
+@import "../core/Mixins.scss";
+
 .footer {
-    background-color: #ff9e96;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    height: 10vh;
-    @media (min-width: 768px) {
-      &__logo {
-        height: 30px;
-        width: 30px;
-        justify-content: flex-end;
-      }
-    }
-    &__logo {
-      height: 46px;
-      width: 126px;
-    }
+  background-color: #ff9e96;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 15px;
+  height: 10vh;
+  &__copy {
+    font-size: 12px;
+    color: $white;
+    height: fit-content;
+    order: 2;
   }
-  
+}
+.logo {
+  height: 30px;
+  width: 30px;
+  order: 1;
+}
+
+.hiddenDiv {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hiddenMsg {
+  @include headerFooter;
+  color: rgb(12, 7, 12);
+  font-size: 8px;
+  opacity: 0;
+}
+.hiddenMsg:hover {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .footer__copy {
+    @include headerFooter;
+    font-size: 18px;
+    color: $white;
+  }
+  .logo {
+    height: 60px;
+    width: 70px;
+  }
+  /*.logo:hover {
+    transform: scale(1.3) rotateX(10deg);
+  }*/
+  .logo:hover {
+    opacity: 0.07;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    -ms-transition: opacity 500ms;
+    transition: opacity 500ms;
+  }
+
+  .hiddenDiv {
+    display: inline-block;
+    width: fit-content;
+    position: relative;
+  }
+
+  .hiddenDiv > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding: 10px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    height: 70px;
+    width: 70px;
+    padding-top: 10px;
+  }
+}
