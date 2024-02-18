@@ -4,7 +4,7 @@ import Main from '../Main.jsx';
 
 
 function CardProject({
-  hidden,
+  hideCardLink,
   handleClickCreateCard,
   setFormData,
   formData,
@@ -12,11 +12,12 @@ function CardProject({
   handleInput,
   handleClearForm,
   setImageSize,
-  imageSize
+  imageSize,
+  missingImage
 }) {
   return (
       <Main
-        hidden={hidden}
+        hideCardLink={hideCardLink}
         handleClickCreateCard={handleClickCreateCard}
         handleInput={handleInput}
         setFormData={setFormData}
@@ -25,6 +26,7 @@ function CardProject({
         handleClearForm={handleClearForm}
         setImageSize={setImageSize}
         imageSize={imageSize}
+        missingImage={missingImage}
       />
   );
 }
@@ -34,10 +36,11 @@ CardProject.propTypes = {
   formData: PropTypes.object.isRequired,
   handleInput: PropTypes.func.isRequired,
   handleClickCreateCard: PropTypes.func.isRequired,
-  hidden: PropTypes.string.isRequired,
+  hideCardLink: PropTypes.string.isRequired,
   cardLink: PropTypes.string,
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
+  missingImage: PropTypes.string.isRequired
 };
 export default CardProject;
