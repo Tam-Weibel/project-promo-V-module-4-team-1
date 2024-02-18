@@ -2,32 +2,36 @@
 
 .preview {
   height: fit-content;
+  
   @media (min-width: 768px) {
     width: 487.8px;
   }
   &__image {
     object-fit: cover;
     width: 100%;
-    height: 307px;
-
+    height: 300px;
+    border-radius: 30px;
+    padding: 10px;
+    
     @media (min-width: 768px) {
-      height: 545.7px;
+      height: 460px;
     }
   }
 }
 .card {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
+  //justify-content: space-around;
   gap: 10px;
   width: 90%;
-  height: fit-content;
+  //height: fit-content;
   margin: 0 auto;
   padding: 20px;
   background-color: $white;
-  color: #3e3e3e;
+  color: $greytext;
   border-radius: 20px;
-  z-index: 1;
+  border:  1px solid $violetborder;
+  //z-index: 1;
   transform: translateY(-40px);
 }
 .text {
@@ -35,26 +39,20 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
   &__subtitle {
     font-size: 8px;
-    text-align: center;
-  }
-
-  &__desc {
-    color: $greyishBrown88;
-    font-family: $card;
-    font-size: 8px;
-    line-height: 14.1px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    border-bottom: 1px solid $greytext;
+    padding-bottom: 5px;
   }
 
   &__title {
-    color: $black;
+    color: $greytext;
     font-family: $card;
     font-size: 14px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    margin-top: 10px;
+    //word-wrap: break-word;
+    //overflow-wrap: break-word;
   }
 
   &__slogan {
@@ -63,24 +61,38 @@
     font-size: 12px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+
   }
 
-  &__text {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 10px;
-    color: $greyishBrown;
-    font-family: $author;
-    font-weight: 600;
+
+  &__desc {
+    color: $greyishBrown88;
+    font-family: $card;
+    font-size: 8px;
+    line-height: 14.1px;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    margin-top: 5px;
+  }
+
+  &__technologies{
+    color: $greytext;
+    font-size: 12px;
   }
 
   &__icons {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
+    
+
+    &--link{
+      color: $violetborder;
+      font-size: 18px;
+    }
+
   }
+
   @media (min-width: 768px) {
     &__subtitle {
       font-size: 10px;
@@ -102,7 +114,21 @@
       font-size: 12px;
     }
   }
+
+
+
+  // &__text {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   font-size: 10px;
+  //   color: $greyishBrown;
+  //   font-family: $author;
+  //   font-weight: 600;
+  //   word-wrap: break-word;
+  //   overflow-wrap: break-word;
+  // }
 }
+
 .profile {
   width: 40%;
   text-align: center;
@@ -113,15 +139,15 @@
   }
 
   &__job {
-    color: $warmGrey;
-    font-family: $author;
-    font-size: 10px;
+    color: $greyishBrownTwo;
+    font-size: 8px;
+    font-family: $card;
   }
 
   &__name {
     font-size: 14px;
-    color: $black;
-    font-family: $author;
+    color: $greytext;
+    font-family: $card;
   }
 
   @media (min-width: 768px) {

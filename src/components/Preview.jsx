@@ -1,4 +1,4 @@
-import cover from '../images/cover.jpeg';
+import cover from '../images/mockup/mockup4.jpg';
 import user from '../images/user.jpeg';
 import PropTypes from 'prop-types';
 import '../scss/layout/Preview.scss';
@@ -11,7 +11,7 @@ function Preview({ formData }) {
       <article className='preview__card card'>
         <div className='text'>
           <p className='text__subtitle'>Personal Project Card</p>
-          <hr className='text__line' />
+          {/* <hr className='text__line' /> la idea es quitar este hr y poner un boder bottom al subtitle */}
 
           <h2 className='text__title'> {formData.name || 'Elegant Workspace'} </h2>
           <p className='text__slogan'> {formData.slogan || 'Diseños Exclusivos'} </p>
@@ -23,10 +23,10 @@ function Preview({ formData }) {
             <p className='text__technologies--p'> {formData.technologies || 'React JS - HTML -  CSS'}</p>
           </section>
           <section className='text__icons'>
-            <a href={formData.repo} target='_blank'  rel="noreferrer">
-              <i className='fa-brands fa-github'></i>
+            <a href={formData.repo} target='_blank'  rel="noreferrer" className='text__icons--link'>
+              <i className='fa-brands fa-github text__iconsColor'></i>
             </a>
-            <a href={formData.demo} target='_blank'  rel="noreferrer"> 
+            <a href={formData.demo} target='_blank'  rel="noreferrer" className='text__icons--link' > 
               <i className='fa-solid fa-globe'></i>
             </a>
           </section>
