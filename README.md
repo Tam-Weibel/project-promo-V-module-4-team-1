@@ -43,7 +43,7 @@ También maquetamos una landing sencilla de bienvenida, que da acceso a la pági
 
 **Maquetación:** HTML5, CSS3, SASS
 
-**Interactividad:** JAVASCRIPT E-26, APIs de terceros (*14-02-2024: trabajando en creación de base de datos, sesrvidor y API propias)
+**Interactividad:** JAVASCRIPT E-26, APIs de terceros (*14-02-2024: trabajando en creación de base de datos, servidor y API propias)
 
 **Framework:** React JS 
 
@@ -51,7 +51,7 @@ También maquetamos una landing sencilla de bienvenida, que da acceso a la pági
 
 **Server:** Node JS, Express JS
 
-**Node Packet Manager:**
+**Node Package Manager:**
 
 **Design:** Zeplin
  
