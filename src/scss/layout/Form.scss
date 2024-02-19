@@ -38,17 +38,17 @@
     }
   }
   &__input {
-    background-color: $orange;
-    border: solid 2px $white;
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
     border-radius: 40px;
     height: 42.72px;
     color: $white;
     padding-left: 15px;
     width: 80%;
   }
-  &__textarea {
-    background-color: $orange;
-    border: solid 2px $white;
+  &__textarea{
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
     border-radius: 20px;
     color: $white;
     padding-top: 10px;
