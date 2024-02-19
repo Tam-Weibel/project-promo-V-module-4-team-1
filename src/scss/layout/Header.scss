@@ -2,10 +2,8 @@
 @import "../core/Mixins.scss";
 
 .header {
-  background-color: #ff9e96ab;
+  background-color: $violet;
   height: 10vh;
-  width: 100vw;
-  position: fixed;
 }
 
 .nav {
@@ -32,32 +30,29 @@
   margin-right: 15px;
 }
 
-  @media (min-width: 768px) {
-    
-    .nav__title--bird {
-      padding-top: 10px;
-      padding-left: 10px;
-      font-size: 18px;
-    }
-    .nav__title--arrow {
-      font-size: 12px;
-      padding-left: 10px;
-    }
-    .nav__logo {
-      height: 50px;
-      width: 50px;
-    }
+@media (min-width: 768px) {
+  .nav__title--bird {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 18px;
   }
+  .nav__title--arrow {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .nav__logo {
+    height: 50px;
+    width: 50px;
+  }
+}
 
-
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .header {
     height: 15vh;
   }
-  .nav__logo{
-      height: 80px;
-      width: 80px;
-      margin-top: 15px;
-    }
+  .nav__logo {
+    height: 80px;
+    width: 80px;
+    margin-top: 15px;
   }
-
+}

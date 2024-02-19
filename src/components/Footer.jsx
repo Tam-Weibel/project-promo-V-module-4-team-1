@@ -6,12 +6,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p className="footer__copy">©Cookie Team 2024</p>
-      <div className="hiddenDiv">
-        <div className="hiddenMsg">
-         ¡Descubre al equipo!
-        </div>
-        <img className="logo" src={cookielogo} alt="logo Adalab" />
-      </div>
+      <img className="footer__logo" src={cookielogo} alt="logo Adalab" />
     </footer>
   );
 }
