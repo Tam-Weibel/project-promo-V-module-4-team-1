@@ -1,5 +1,5 @@
 const callToApi = (formData) => {
-    return fetch ("https://dev.adalab.es/api/projectCard", {
+    return fetch ("http://localhost:5001/getprojects", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {"Content-type": "application/json"},
@@ -27,4 +27,17 @@ const callToApi = (formData) => {
 };
 
 
-  export default callToApi;
+const getProjects = () => {
+    return fetch ("http://localhost:5001/getprojects")
+    .then((response) => response.json())
+    .then((responseData) => {
+        return (responseData);
+    })
+    .catch((error)=> {
+        console.error("Error calling API:", error);
+    });
+};
+
+const object = {callToApi: callToApi, getProjects: getProjects} 
+
+  export default object;

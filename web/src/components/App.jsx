@@ -5,7 +5,7 @@ import cover2 from '../images/cover_2.jpeg';
 import favicon from '../images/favicon.png';
 import logoAlab from '../images/logo-adalab.png';
 //API y LS
-import callToApi from '../services/Api.js';
+import object from '../services/Api.js';
 import localStorage from '../services/LocalStorage.js';
 //react
 import { useEffect, useState } from 'react';
@@ -34,6 +34,8 @@ function App() {
     image: '',
     photo: '',
   });
+
+  const [projectList, setProjectList] = useState([]);
   const [cardLink, setCardLink] = useState('');
   const [hideCardLink, setHideCardLink] = useState('hidden');
   const [imageSize, setImageSize] = useState('hidden');
@@ -53,6 +55,14 @@ function App() {
       photo: '',
     }
   );
+
+useEffect(() => {
+  object.getProjects().then(responseData=>{
+    setProjectList(responseData.data)
+
+  }
+    )
+},[])
 
   const handleInput = (ev) => {
     const inputValue = ev.target.value;
@@ -146,7 +156,7 @@ function App() {
         />
         <Route
           path='/listProject'
-          element={<ListProject formData={formData} />}
+          element={<ListProject projectList={projectList}  />}
         />
       </Routes>
       <Footer />
