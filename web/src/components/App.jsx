@@ -151,6 +151,7 @@ useEffect(() => {
               setImageSize={setImageSize}
               imageSize={imageSize}
               missingImage={missingImage}
+              setMissingImage={setMissingImage}
             />
           }
         />
