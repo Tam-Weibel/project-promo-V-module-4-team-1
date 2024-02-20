@@ -1,0 +1,10 @@
+@import '../core/Variables.scss';
+
+.btn{
+ background-color: $green;
+ border: 2px solid $white;
+ border-radius: 30px;
+ width: 130px;
+ height: 40px;
+ cursor: pointer;
+}

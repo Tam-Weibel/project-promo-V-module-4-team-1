@@ -1,0 +1,165 @@
+@import "../core/Variables.scss";
+
+.previewtwo {
+  height: fit-content;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+  &__image {
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    border-radius: 30px;
+    padding: 10px;
+
+    @media (min-width: 768px) {
+      height: 300px;
+    }
+  }
+}
+
+.cardtwo {
+  display: flex;
+  flex-direction: row-reverse;
+  //justify-content: space-around;
+  gap: 10px;
+  width: 90%;
+  //height: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  //background-color: $white;
+  background-color: $violettwo;
+  color: $greytext;
+  border-radius: 20px;
+  border: 1px solid $violetborder;
+  //z-index: 1;
+  transform: translateY(-40px);
+
+  @media (min-width: 768px) {
+    width: 85%;
+  }
+}
+
+.texttwo {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &__subtitle {
+    font-size: 8px;
+    border-bottom: 1px solid $greytext;
+    padding-bottom: 5px;
+  }
+
+  &__title {
+    color: $greytext;
+    font-family: $card;
+    font-size: 14px;
+    margin-top: 10px;
+    //word-wrap: break-word;
+    //overflow-wrap: break-word;
+  }
+
+  &__slogan {
+    color: $greyishBrownTwo;
+    font-family: $card;
+    font-size: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  &__desc {
+    color: $greyishBrown88;
+    font-family: $card;
+    font-size: 8px;
+    line-height: 14.1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-top: 5px;
+  }
+
+  &__technologies {
+    color: $greytext;
+    font-size: 12px;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    &--link {
+      //color: $violetborder;
+      //color: $white;
+      color: $violetborder;
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__subtitle {
+      font-size: 10px;
+    }
+
+    &__desc {
+      font-size: 12px;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__slogan {
+      font-size: 16px;
+    }
+
+    &__text {
+      font-size: 12px;
+    }
+  }
+
+  // &__text {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   font-size: 10px;
+  //   color: $greyishBrown;
+  //   font-family: $author;
+  //   font-weight: 600;
+  //   word-wrap: break-word;
+  //   overflow-wrap: break-word;
+  // }
+}
+
+.profile {
+  width: 40%;
+  text-align: center;
+
+  &__image {
+    border-radius: 50%;
+    width: 80%;
+  }
+
+  &__job {
+    color: $greyishBrownTwo;
+    font-size: 8px;
+    font-family: $card;
+  }
+
+  &__name {
+    font-size: 14px;
+    color: $greytext;
+    font-family: $card;
+  }
+
+  @media (min-width: 768px) {
+    &__job {
+      font-size: 12px;
+    }
+
+    &__name {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+@import "../core/Variables.scss";
+
+.listproject {
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+

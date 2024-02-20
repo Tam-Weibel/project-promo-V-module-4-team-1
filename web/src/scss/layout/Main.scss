@@ -1,0 +1,34 @@
+@import "../core/Variables.scss";
+.main {
+<<<<<<< HEAD:src/scss/layout/Main.scss
+  background-color: $violet;
+  min-height: 80vh;
+  text-align: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 50px;
+=======
+    background-color: $violet;
+    //background-color: $white;
+    min-height: 80vh;
+    text-align: center;
+    &__container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        @media (min-width: 768px) {
+           flex-direction: row;
+           gap: 50px;
+          }
+>>>>>>> dev:web/src/scss/layout/Main.scss
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@import '../core/Variables.scss';
+@import '../core/Mixins.scss';
+.form {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__h2 {
+    color: $white;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  &__section {
+    padding: 10px;
+    text-align: center;
+    color: $white;
+    &--subtitle {
+      padding-bottom: 10px;
+    }
+    &--line {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.75),
+        rgba(255, 255, 255, 0)
+      );
+    }
+  }
+  &__input {
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
+    border-radius: 40px;
+    height: 42.72px;
+    color: $white;
+    padding-left: 15px;
+    width: 80%;
+  }
+  &__textarea{
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
+    border-radius: 20px;
+    color: $white;
+    padding-top: 10px;
+    padding-left: 15px;
+    height: 110px;
+    width: 80%;
+  }
+}
+.boxBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: fit-content;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.alert {
+  font-size: 12px;
+  color: $green;
+  max-width: 240px;
+  @media (min-width: 1024px) {
+    max-width: 500px;
+  }
+}
+.hidden {
+  display: none;
+}
