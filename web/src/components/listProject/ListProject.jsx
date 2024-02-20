@@ -11,21 +11,27 @@ import PreviewListProject from './PreviewListProject.jsx';
 
 
 
-function ListProject({ formData }) {
+function ListProject({ projectList }) {
+  const renderProject = projectList.map((project) => {
+    return  (
+      <li>
+      < PreviewListProject project={project} /> {/*meter componente nuevo y NO previewListProject*/}
+      </li>
+    )
+  })
   return (
     <main className="main">
       <ButtonCreateCard />
       <div className="listproject">
-        {/* <Preview formData={formData} />
-        <Preview formData={formData} /> */}
-        < PreviewListProject formData={formData} />
-        < PreviewListProject formData={formData} />
+        <ul>
+          {renderProject}
+        </ul>
       </div>
     </main>
   );
 }
 ListProject.propTypes = {
-  formData: PropTypes.object.isRequired,
+  projectList: PropTypes.array.isRequired,
 };
 
 export default ListProject;

@@ -16,7 +16,8 @@ function Main({
   handleClearForm,
   setImageSize,
   imageSize,
-  missingImage
+  missingImage,
+  setMissingImage
 }) {
   return (
     <main className="main">
@@ -35,6 +36,7 @@ function Main({
         setImageSize={setImageSize}
         imageSize={imageSize}
         missingImage={missingImage}
+        setMissingImage={setMissingImage}
       />
      </div>
     </main>
@@ -50,7 +52,8 @@ Main.propTypes = {
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
-  missingImage: PropTypes.string.isRequired
+  missingImage: PropTypes.string.isRequired,
+  setMissingImage: PropTypes.func.isRequired
 };
 
 export default Main;
