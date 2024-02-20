@@ -141,6 +141,7 @@ function App() {
               setImageSize={setImageSize}
               imageSize={imageSize}
               missingImage={missingImage}
+              setMissingImage={setMissingImage}
             />
           }
         />

@@ -13,7 +13,8 @@ function Form({
   handleClearForm,
   setImageSize,
   imageSize,
-  missingImage
+  missingImage,
+  setMissingImage
 }) {
   return (
     <form className="form" onSubmit={handleClickCreateCard}>
@@ -127,6 +128,7 @@ function Form({
             name="photo"
             formData={formData}
             setImageSize={setImageSize}
+            setMissingImage={setMissingImage}
           />
           <GetAvatar
             setFormData={setFormData}
@@ -134,6 +136,7 @@ function Form({
             name="image"
             formData={formData}
             setImageSize={setImageSize}
+            setMissingImage={setMissingImage}
           />
         </section>
         <p className={`alert ${imageSize}`}>
@@ -165,6 +168,7 @@ Form.propTypes = {
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
-  missingImage: PropTypes.string.isRequired
+  missingImage: PropTypes.string.isRequired,
+  setMissingImage: PropTypes.func.isRequired
 };
 export default Form;
