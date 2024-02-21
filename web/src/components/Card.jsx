@@ -6,7 +6,7 @@ import user from '../images/user.png';
 function Card({project}) {
     console.log(project);
   return (
-    <article className='preview__card cardtwo'>
+    <article className='cardtwo'>
         <div className='texttwo'>
           <p className='texttwo__subtitle'>Personal Project Card</p>
           {/* <hr className='text__line' /> la idea es quitar este hr y poner un boder bottom al subtitle */}

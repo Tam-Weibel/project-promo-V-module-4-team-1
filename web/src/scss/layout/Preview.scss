@@ -51,8 +51,8 @@
     font-family: $card;
     font-size: 14px;
     margin-top: 10px;
-    //word-wrap: break-word;
-    //overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   &__slogan {

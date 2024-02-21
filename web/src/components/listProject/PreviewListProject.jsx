@@ -10,7 +10,9 @@ function PreviewListProject({ project }) {
   return (
     <section className='previewtwo'>
       <img className='previewtwo__image' src={project.image || cover} alt='' />
-      < Card project={project} />
+      <div className='previewtwo__card'>
+        < Card project={project} />
+      </div>
     </section>
   );
 }
