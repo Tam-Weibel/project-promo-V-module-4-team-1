@@ -42,19 +42,27 @@
     border: solid 2px $violetborder;
     border-radius: 40px;
     height: 42.72px;
-    color: $white;
+    color: $greyishBrown;
     padding-left: 15px;
     width: 80%;
+    &::placeholder {
+      color: $white;
+      font-size: 14px;
+    }
   }
   &__textarea{
     background-color: $violettwo;
     border: solid 2px $violetborder;
     border-radius: 20px;
-    color: $white;
+    color: $greyishBrown;
     padding-top: 10px;
     padding-left: 15px;
     height: 110px;
     width: 80%;
+    &::placeholder {
+      color: $white;
+      font-size: 14px;
+    }
   }
 }
 .boxBtns {
@@ -70,7 +78,8 @@
 }
 .alert {
   font-size: 12px;
-  color: $green;
+  font-weight: bold;
+  color: red;
   max-width: 240px;
   @media (min-width: 1024px) {
     max-width: 500px;
