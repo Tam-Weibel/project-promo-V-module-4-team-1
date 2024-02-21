@@ -5,7 +5,7 @@ const mysql = require('mysql2/promise');
 const server = express();
 server.use(cors())
 const port = 5001;
-
+server.use(express.json()) //esta linea no estaba y no llegaban los datos del body
 async function getDB (){
     const dataBase = await mysql.createConnection({
         host: 'sql.freedb.tech',
@@ -33,7 +33,7 @@ server.get('/getprojects', async (req, res) => {
 })
 server.post('/addProject', async (req, res) => {
     const conex = await getDB();
-    const insertAuthor = 'insert into author (nameAut, job, photo) values (?,?,?)';
+    const insertAuthor = 'INSERT INTO author (nameAut, job, photo) values (?,?,?)'; //las comillas q metimos en las ? no hacian falta por mucho que las quiera el workbench
     const [resultAuthor] = await conex.query(insertAuthor, [
         req.body.autor,
         req.body.job,
@@ -41,7 +41,7 @@ server.post('/addProject', async (req, res) => {
     ]);
     const lastInsertAuthor = resultAuthor.insertId;
 
-    const insertProject = 'insert into project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, author_id, slogan) values (?,?,?,?,?,?,?,?)';
+    const insertProject = 'INSERT INTO project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, author_id) values (?,?,?,?,?,?,?,?)'; //author_id tiene q ir al final para estar igual que lastInsertAuthor
     const [resultProject] = await conex.query(insertProject, [
         req.body.name,
         req.body.desc,
@@ -49,9 +49,8 @@ server.post('/addProject', async (req, res) => {
         req.body.image,
         req.body.repo,
         req.body.demo,
-        req.body.author_id,
         req.body.slogan,
-        lastInsertAuthor
+        lastInsertAuthor //quitamos la de authorId ya q es esta la buena
     ]);
     conex.end();
     res.json({
