@@ -2,16 +2,16 @@
 @import '../core/Mixins.scss';
 
 .footer {
-  background: $violettwo;
-  background: linear-gradient(0deg, $violettwo 10%, $violet 100%);
+  background: $violet;
+  // background: linear-gradient(0deg, $violettwo 10%, $violet 100%);
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 15px;
+  padding: 20px;
   height: 7vh;
 
   &__copy {
-    @include headerFooter;
+    // @include headerFooter;
     font-size: 12px;
     color: $white;
     height: fit-content;
