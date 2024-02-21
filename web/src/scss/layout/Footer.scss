@@ -1,55 +1,26 @@
-@import "../core/Variables.scss";
-@import "../core/Mixins.scss";
+@import '../core/Variables.scss';
+@import '../core/Mixins.scss';
 
 .footer {
-  background-color: $green;
+  background: $violettwo;
+  background: linear-gradient(0deg, $violettwo 10%, $violet 100%);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-end;
-  padding: 10px 15px;
-  height: 10vh;
+  padding: 15px;
+  height: 7vh;
+
   &__copy {
     @include headerFooter;
     font-size: 12px;
-    color: $violet;
+    color: $white;
     height: fit-content;
     order: 2;
   }
   &__logo {
     height: 30px;
     width: 30px;
+    align-self: center;
     order: 1;
-  }
-}
-
-@media (min-width: 768px) {
-  .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    &__copy {
-      @include headerFooter;
-      font-size: 18px;
-      color: $violet;
-    }
-    &__logo {
-      height: 40px;
-      width: 40px;
-    }
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer__logo {
-    height: 60px;
-    width: 60px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .footer__logo {
-    height: 70px;
-    width: 70px;
   }
 }

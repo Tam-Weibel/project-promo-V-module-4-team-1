@@ -31,21 +31,6 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize, setMissing
   };
 
   return (
-<<<<<<< HEAD
-   
-      <label className='uploadLabel btn'>
-        {text}
-        <input
-          type='file'
-          ref={myFileField}
-          style={{ display: 'none' }}
-          onChange={uploadImage}
-          name={name}
-        />
-      </label>
-     
-    
-=======
     <label className='btn uploadLabel'>
       {text}
       <input
@@ -56,7 +41,6 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize, setMissing
         name={name}
       />
     </label>
->>>>>>> dev
   );
 }
 
