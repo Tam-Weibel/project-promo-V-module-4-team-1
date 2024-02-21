@@ -31,6 +31,34 @@ server.get('/getprojects', async (req, res) => {
     conex.end();
     res.json({success: true, data: results});
 })
+server.post('/addProject', async (req, res) => {
+    const conex = await getDB();
+    const insertAuthor = 'insert into author (nameAut, job, photo) values (?,?,?)';
+    const [resultAuthor] = await conex.query(insertAuthor, [
+        req.body.autor,
+        req.body.job,
+        req.body.photo
+    ]);
+    const lastInsertAuthor = resultAuthor.insertId;
+
+    const insertProject = 'insert into project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, author_id, slogan) values (?,?,?,?,?,?,?,?)';
+    const [resultProject] = await conex.query(insertProject, [
+        req.body.name,
+        req.body.desc,
+        req.body.technologies,
+        req.body.image,
+        req.body.repo,
+        req.body.demo,
+        req.body.author_id,
+        req.body.slogan,
+        lastInsertAuthor
+    ]);
+    conex.end();
+    res.json({
+        success: true,
+        cardLink: `http://localhost/detail/${resultProject.insertId}`
+    })
+});
 
 const staticServer = "./web/dist";
 server.use(express.static(staticServer));
