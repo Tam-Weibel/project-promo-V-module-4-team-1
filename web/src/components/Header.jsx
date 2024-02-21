@@ -1,23 +1,25 @@
 import { Link } from 'react-router-dom';
-import logoAlab from '../images/logo-adalab.png';
+import logocookie from '../images/cookielogo1.png';
 import '../scss/core/Variables.scss';
 import '../scss/layout/Header.scss';
 import PropTypes from 'prop-types';
 
 function Header({ hero }) {
-  return (
+  return (        
     <header className="header">
-      <nav className="nav">
+        <nav className="nav">
         <Link to='/' className='link'>
           <span className="nav__title">
-            <i className="fa-solid fa-laptop-code nav__title--icon"></i>Proyectos
-            Molones
+          {/* <i class="fa-solid fa-laptop-code"></i> */}
+            <i className="fa-brands fa-themeisle  nav__title--bird"></i>
+            <i className="fa-solid fa-arrow-left-long  nav__title--arrow"></i>
           </span>
         </Link>
-        <img className="nav__logo" src={logoAlab} alt="logo Adalab" />
+        <img className="nav__logo" src={logocookie} alt="logo Cookie" />
       </nav>
       {hero}
     </header>
+    
   );
 }
 export default Header;

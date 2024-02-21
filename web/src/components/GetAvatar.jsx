@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 import '../scss/layout/Btn.scss';
 import '../scss/layout/GetAvatar.scss';
 
-function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
+function GetAvatar({ setFormData, text, name, formData, setImageSize, setMissingImage }) {
   const fr = new FileReader();
   const myFileField = React.createRef();
 
   const uploadImage = (ev) => {
-    console.log(
-      'El fichero elegido es',
-      ev.currentTarget.files[0]
-    );
+    setMissingImage('hidden');
+    console.log('El fichero elegido es', ev.currentTarget.files[0]);
+    console.log('el length es', ev.currentTarget.files.length);
     if (ev.currentTarget.files.length > 0) {
       const myFile = ev.currentTarget.files[0];
       if (myFile.size > 50 * 1024) {
         ev.currentTarget.value = null;
         setImageSize('alert');
         return;
-      } else{
+      } else {
         setImageSize('hidden');
       }
       fr.addEventListener('load', getImage);
@@ -32,6 +31,7 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
   };
 
   return (
+<<<<<<< HEAD
    
       <label className='uploadLabel btn'>
         {text}
@@ -45,6 +45,18 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize }) {
       </label>
      
     
+=======
+    <label className='btn uploadLabel'>
+      {text}
+      <input
+        type='file'
+        ref={myFileField}
+        style={{ display: 'none' }}
+        onChange={uploadImage}
+        name={name}
+      />
+    </label>
+>>>>>>> dev
   );
 }
 
@@ -54,6 +66,7 @@ GetAvatar.propTypes = {
   name: PropTypes.string,
   formData: PropTypes.object.isRequired,
   setImageSize: PropTypes.func.isRequired,
+  setMissingImage: PropTypes.func.isRequired,
 };
 
 export default GetAvatar;

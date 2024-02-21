@@ -2,16 +2,27 @@
 
 ![Logo Cookie Team](src/images/cookielogo1.png)
 # ¡¡Proyectos molones!! :)
-https://avispas.github.io/project-promo-V-module-3-team-1/
+https://avispas.github.io/project-promo-V-module-3-team-1/   ( frontend - SPA )
 
-## Deadline:
+https://github.com/Tam-Weibel/project-promo-V-module-4-team-1  (updated frontend + backend - SPA)
 
+
+## Deadline Backend:
+Lunes, 04 de Marzo : demo del proyecto.
+
+-Los requisitos a añadir a la parte de back end de nuestra SPA son crear un servidor básico, una API REST para listar y crear proyectos, un motor de plantillas para visualizar los proyectos y un servidor estáticos para servir la web desde un nuevo servidor.
+Trabajaremos con una base de datos MYSQL para poder gestionar los datos recibidos por los usuarios en el formulario de la aplicación web, almacenados en el local storage del navegador hasta el momento.
+El diseño front end presentado en la demo anterior del 13 de Febrero se personalizará y se mejorarán detalles en las funncionalidades, como la validación de los campos a cumplimentar, la aparición de mensajes o alertas  más específicos para el usuari@ (ambas fotos requeridas, por ejemplo).
+![Ejemplo de pruebas de nuevo scss](src/images/newscss.png)
+Se ha integrado un loader para la espera de la carga de la URL generada para cada usuario al pulsar el botón de "crear tarjeta".
+![Mensaje de aviso](src/images/message1.png)
+## Deadline Frontend:
 Martes, 13 de Febrero : demo del proyecto.
 
 . Se nos pidió dar funcionalidad a una página cuyo objetivo es crear una ficha tipo tarjeta, donde el usuario rellenará un formulario con sus datos, pudiendo añadir trabajos personales de desarrollo de software, entre otros, junto con documentos gráficos tanto de su persona para el perfil de la tarjeta, como del propio proyecto en sí. 
 Tras la creación de la tarjeta , esta generará un link personal y una previsualización de la misma. 
 
-![Example from design](src/images/zeplin%20design.png)
+![Example from design](src/images/screen.png)
 
 El formulario había de responder a eventos tanto para la cumplimentación de campos, subida de archivos locales del usuario, guardar los datos en el navegador , por lo que está en contacto directo con una API que recoge y devuelve estos datos.
 
@@ -32,7 +43,7 @@ También maquetamos una landing sencilla de bienvenida, que da acceso a la pági
 
 **Maquetación:** HTML5, CSS3, SASS
 
-**Interactividad:** JAVASCRIPT E-26, APIs de terceros (*14-02-2024: trabajando en creación de base de datos, sesrvidor y API propias)
+**Interactividad:** JAVASCRIPT E-26, APIs de terceros (*14-02-2024: trabajando en creación de base de datos, servidor y API propias)
 
 **Framework:** React JS 
 
@@ -40,8 +51,11 @@ También maquetamos una landing sencilla de bienvenida, que da acceso a la pági
 
 **Server:** Node JS, Express JS
 
-**Design:** Zeplin
+**Node Package Manager:**
 
+**Design:** Zeplin
+ 
+**Local Development Server:**  Vite
 
 Uso de Sass para el diseño y los estilos de la página web: anidamientos, nomenclatura BEM, utilziación de variables y mixins para refctorizar código referente a estilos comunes.
 
@@ -91,7 +105,7 @@ https://github.com/LauraSabrin
 Hemos aprendido a trabajar resolviendo y entendiendo numerosos conflictos, por lo que la fluidez y los tiempos han sido diferentes para nosotras esta vez, aunque estamos orgullosas de comprobar que nuestro  perfil como programadoras ha evolucionado, tanto en la comprensión de conceptos y la magnitud y complejidad del proyecto. 
 
 ## Screenshots
-![Example from design](src/images/screenshotForm.png)
+![React Tree Components](src/images/reactTreeComponents.png)
 
 
 

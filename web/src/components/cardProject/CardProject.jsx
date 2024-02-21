@@ -13,7 +13,8 @@ function CardProject({
   handleClearForm,
   setImageSize,
   imageSize,
-  missingImage
+  missingImage,
+  setMissingImage
 }) {
   return (
       <Main
@@ -27,6 +28,7 @@ function CardProject({
         setImageSize={setImageSize}
         imageSize={imageSize}
         missingImage={missingImage}
+        setMissingImage={setMissingImage}
       />
   );
 }
@@ -41,6 +43,7 @@ CardProject.propTypes = {
   handleClearForm: PropTypes.func.isRequired,
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
-  missingImage: PropTypes.string.isRequired
+  missingImage: PropTypes.string.isRequired,
+  setMissingImage: PropTypes.func.isRequired,
 };
 export default CardProject;

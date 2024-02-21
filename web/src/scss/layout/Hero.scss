@@ -1,5 +1,6 @@
-@import '../core/Variables.scss';
+@import "../core/Variables.scss";
 
+<<<<<<< HEAD
 .hero{
     display: flex;
     flex-direction: column;
@@ -13,5 +14,21 @@
         font-family: $form;
         color:$white;
     }
-}
+=======
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  &__title {
+    font-family: $heroBtn;
+    color: $white;
+    padding-bottom: 2px;
+  }
 
+  &__text {
+    font-family: $card;
+    color: $white;
+    font-weight: bold;
+  }
+>>>>>>> dev
+}
