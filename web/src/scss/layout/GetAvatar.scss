@@ -2,6 +2,8 @@
 @import '../core/Mixins.scss';
 
 .uploadLabel{
+    display: flex;
+    align-items: center;
     font-size: 13.333px;
     display: flex;
     align-items: center;

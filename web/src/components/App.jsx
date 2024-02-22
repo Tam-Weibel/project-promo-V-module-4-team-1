@@ -136,7 +136,7 @@ useEffect(() => {
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<LandingPage />} />
+        <Route path='/' element={<LandingPage formData={formData}/>} />
         <Route
           path='/cardProject'
           element={

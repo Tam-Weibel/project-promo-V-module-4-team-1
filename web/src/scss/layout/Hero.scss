@@ -3,16 +3,17 @@
 .hero {
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  padding: 15px;
+  gap: 5px;
+
   &__title {
-    font-family: $heroBtn;
+    font-family: $form;
     color: $white;
-    padding-bottom: 2px;
   }
 
   &__text {
     font-family: $card;
     color: $white;
-    font-weight: bold;
+    font-style: italic;
   }
 }
