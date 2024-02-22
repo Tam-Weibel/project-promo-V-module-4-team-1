@@ -1,4 +1,4 @@
-import cookielogo from "../images/cookielogo1.png";
+import cookielogo from "../images/cookie.png";
 import "../scss/core/Variables.scss";
 import "../scss/layout/Footer.scss";
 

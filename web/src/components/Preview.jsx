@@ -1,5 +1,5 @@
 import cover from '../images/mockup/mockup4.jpg';
-import user from '../images/user.jpeg';
+import user from '../images/user.png';
 import PropTypes from 'prop-types';
 import '../scss/layout/Preview.scss';
 
@@ -8,7 +8,7 @@ function Preview({ formData }) {
     <section className='preview'>
       <img className='preview__image' src={formData.photo || cover} alt='' />
 
-      <article className='preview__card card'>
+      <article className='card'>
         <div className='text'>
           <p className='text__subtitle'>Personal Project Card</p>
           {/* <hr className='text__line' /> la idea es quitar este hr y poner un boder bottom al subtitle */}
