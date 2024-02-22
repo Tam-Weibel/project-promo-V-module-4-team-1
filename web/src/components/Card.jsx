@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../scss/layout/PreviewListProject.scss';
+import '../scss/layout/PreviewListProject.scss';
 import PropTypes from 'prop-types';
 import user from '../images/user.png';
 
