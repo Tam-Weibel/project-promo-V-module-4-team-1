@@ -1,4 +1,4 @@
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import ButtonCreateCard from '../ButtonCreateCard.jsx';
 import '../../scss/layout/Main.scss';
