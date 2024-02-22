@@ -9,18 +9,16 @@ function ListProject({ projectList }) {
   const renderProject = projectList.map((project, index) => {
     return  (
       <li key={index}>
-      < PreviewListProject project={project} />
+        < PreviewListProject project={project} />
       </li>
     )
   })
   return (
     <main className="main">
       <ButtonCreateCard />
-      <div className="listproject">
-        <ul>
+        <ul className="listProject">
           {renderProject}
         </ul>
-      </div>
     </main>
   );
 }

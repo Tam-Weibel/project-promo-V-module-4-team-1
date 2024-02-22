@@ -1,5 +1,6 @@
 import GetAvatar from './GetAvatar.jsx';
 import '../scss/layout/Form.scss';
+import '../scss/layout/Btn.scss';
 import CardLink from './CardLink.jsx';
 import PropTypes from 'prop-types';
 

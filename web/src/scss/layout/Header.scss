@@ -2,57 +2,27 @@
 @import "../core/Mixins.scss";
 
 .header {
-  background-color: $violet;
+  background: $violettwo;
+  background: linear-gradient(0deg, $violet 10%, $violettwo 100%);
   height: 10vh;
+  padding: 20px;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav__title {
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.nav__title:hover {
-  cursor: pointer;
-  transform: scale(1.1);
-}
-
-.nav__logo {
-  height: 30px;
-  width: 30px;
-  margin-right: 15px;
-}
-
-@media (min-width: 768px) {
-  .nav__title--bird {
-    padding-top: 10px;
-    padding-left: 10px;
-    font-size: 18px;
+  &__title {
+   font-size: 25px;
   }
-  .nav__title--arrow {
-    font-size: 12px;
-    padding-left: 10px;
+  &__title:hover {
+    cursor: pointer;
+    transform: scale(1.1);
   }
-  .nav__logo {
-    height: 50px;
-    width: 50px;
+  &__logo {
+    height: 30px;
+    width: 30px;
   }
 }
 
-@media (min-width: 1024px) {
-  .header {
-    height: 15vh;
-  }
-  .nav__logo {
-    height: 80px;
-    width: 80px;
-    margin-top: 15px;
-  }
-}
+

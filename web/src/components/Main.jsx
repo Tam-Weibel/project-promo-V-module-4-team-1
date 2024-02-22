@@ -1,5 +1,6 @@
 import '../scss/core/Variables.scss';
 import '../scss/layout/Main.scss';
+import '../scss/layout/Hero.scss';
 import Hero from './Hero.jsx';
 import Preview from './Preview.jsx';
 import Form from './Form.jsx';
