@@ -1,5 +1,5 @@
 import cover from '../images/mockup/mockup4.jpg';
-import user from '../images/user.jpeg';
+import user from '../images/user.png';
 import PropTypes from 'prop-types';
 import '../scss/layout/Preview.scss';
 
