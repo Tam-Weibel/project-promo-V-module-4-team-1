@@ -13,7 +13,7 @@ async function getDB (){
         password: 'V7#FvR4*EZjUJva',
         database: 'freedb_cookieproject',
     });
-    dataBase.connect();
+    await dataBase.connect();
     return dataBase;
 }
 
