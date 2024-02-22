@@ -13,9 +13,10 @@ async function getDB (){
         password: 'V7#FvR4*EZjUJva',
         database: 'freedb_cookieproject',
     });
-    dataBase.connect();
+    await dataBase.connect();
+    console.log(`conexión establecida ${database.threadId}`);
     return dataBase;
-}
+};
 
 server.listen(port, ()=>{
     console.log(`El servidor se esta ejecutando en el puerto ${port}`)
