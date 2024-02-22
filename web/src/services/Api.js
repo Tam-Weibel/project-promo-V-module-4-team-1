@@ -1,5 +1,5 @@
 const callToApi = (formData) => {
-    return fetch ("http://localhost:5001/getprojects", {
+    return fetch ("http://localhost:5001/addProject", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {"Content-type": "application/json"},
@@ -22,10 +22,9 @@ const callToApi = (formData) => {
             job: formData.job.value,
             image: formData.image.value,
             photo: formData.photo.value,
-           };
+        };
     });
 };
-
 
 const getProjects = () => {
     return fetch ("http://localhost:5001/getprojects")
@@ -40,4 +39,4 @@ const getProjects = () => {
 
 const object = {callToApi: callToApi, getProjects: getProjects} 
 
-  export default object;
+export default object;

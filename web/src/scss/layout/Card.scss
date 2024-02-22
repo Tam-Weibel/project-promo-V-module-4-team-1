@@ -1,0 +1,128 @@
+@import "../core/Variables.scss";
+.cardtwo {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: $violettwo;
+    color: $greytext;
+    border-radius: 20px;
+    border: 1px solid $violetborder;
+  
+    @media (min-width: 768px) {
+      width: 85%;
+    }
+  }
+  
+  .texttwo {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    &__subtitle {
+      font-size: 8px;
+      border-bottom: 1px solid $greytext;
+      padding-bottom: 5px;
+    }
+  
+    &__title {
+      color: $greytext;
+      font-family: $card;
+      font-size: 14px;
+      margin-top: 10px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  
+    &__slogan {
+      color: $greyishBrownTwo;
+      font-family: $card;
+      font-size: 12px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  
+    &__desc {
+      color: $greyishBrown88;
+      font-family: $card;
+      font-size: 8px;
+      line-height: 14.1px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      margin-top: 5px;
+    }
+  
+    &__technologies {
+      color: $greytext;
+      font-size: 12px;
+    }
+  
+    &__icons {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+  
+      &--link {
+        color: $violetborder;
+        font-size: 18px;
+      }
+    }
+  
+    @media (min-width: 768px) {
+      &__subtitle {
+        font-size: 10px;
+      }
+  
+      &__desc {
+        font-size: 12px;
+      }
+  
+      &__title {
+        font-size: 20px;
+      }
+  
+      &__slogan {
+        font-size: 16px;
+      }
+  
+      &__text {
+        font-size: 12px;
+      }
+    }
+  }
+  
+  .profile {
+    width: 40%;
+    text-align: center;
+  
+    &__image {
+      border-radius: 50%;
+      width: 100px;
+      height: 80px;
+    }
+  
+    &__job {
+      color: $greyishBrownTwo;
+      font-size: 8px;
+      font-family: $card;
+    }
+  
+    &__name {
+      font-size: 14px;
+      color: $greytext;
+      font-family: $card;
+    }
+  
+    @media (min-width: 768px) {
+      &__job {
+        font-size: 12px;
+      }
+  
+      &__name {
+        font-size: 16px;
+      }
+    }
+  }
+  
