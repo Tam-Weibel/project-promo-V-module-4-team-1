@@ -6,6 +6,8 @@ const server = express();
 server.use(cors())
 const port = 5001;
 server.use(express.json()) //esta linea no estaba y no llegaban los datos del body
+server.set("view engine", "ejs");
+
 async function getDB (){
     const dataBase = await mysql.createConnection({
         host: 'sql.freedb.tech',
@@ -32,8 +34,9 @@ server.get('/getprojects', async (req, res) => {
     res.json({success: true, data: results});
 })
 server.post('/addProject', async (req, res) => {
+    console.log("se ha hecho una petición");
     const conex = await getDB();
-    const insertAuthor = 'INSERT INTO author (nameAut, job, photo) values (?,?,?)'; //las comillas q metimos en las ? no hacian falta por mucho que las quiera el workbench
+    const insertAuthor = 'INSERT INTO author (nameAut, job, photo) values (?,?,?)'; 
     const [resultAuthor] = await conex.query(insertAuthor, [
         req.body.autor,
         req.body.job,
@@ -55,9 +58,22 @@ server.post('/addProject', async (req, res) => {
     conex.end();
     res.json({
         success: true,
-        cardLink: `http://localhost/detail/${resultProject.insertId}`
-    })
+        cardURL: `http://localhost/detail/${resultProject.insertId}`
+    });
+});
+
+server.get('/detail/:id', async(req,res)=> {
+    const { id } = req.params;
+    const selectProjectId = 'SELECT * FROM project, author where author.id = project.author_id and project.id = ?';
+    const conex = await getDB();
+    const [resultProject] = await conex.query(selectProjectId, [id]);
+
+    conex.end();
+
+    res.render('detail', { project: resultProject[0]});
 });
 
 const staticServer = "./web/dist";
 server.use(express.static(staticServer));
+const staticServerCss = "./src/public-css";
+server.use(express.static(staticServerCss));

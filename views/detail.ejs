@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="previewtwo">
+      <img class="previewtwo__image" src="<% project.image %>" alt="" />
+      <div class="previewtwo__card">
+        <article class="cardtwo">
+          <div class="texttwo">
+            <p class="texttwo__subtitle">Personal Project Card</p>
+
+            <h2 class="texttwo__title"><%= project.namePj %></h2>
+            <p class="texttwo__slogan"><%= project.slogan %></p>
+            <p class="texttwo__desc"><%= project.descriptionPj %></p>
+            <section class="texttwo__technologies">
+              <p class="texttwo__technologies--p">
+                <%= project.technologies %>
+              </p>
+            </section>
+            <section class="texttwo__icons">
+              <a
+                href="<%= project.gitUrl %>"
+                target="_blank"
+                rel="noreferrer"
+                class="texttwo__icons--link"
+              >
+                <i class="fa-brands fa-github text__iconsColor"></i>
+              </a>
+              <a
+                href="<%= project.demoUrl %>"
+                target="_blank"
+                rel="noreferrer"
+                class="texttwo__icons--link"
+              >
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </section>
+          </div>
+
+          <div class="profile">
+            <img class="profile__image" src="<%= project.photo %>" alt="" />
+            <p class="profile__job"><%= project.job %></p>
+            <p class="profile__name"><%= project.nameAut %></p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
