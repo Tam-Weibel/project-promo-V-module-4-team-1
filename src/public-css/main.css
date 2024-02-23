@@ -1,4 +1,23 @@
-
+.main{
+    background-color: #9ca8ff;
+    min-height: 83vh;
+    text-align: center;
+    padding: 10px;
+}
+/*list project */
+.listProject {
+    list-style: none;
+    padding-top: 20px;
+}
+@media (min-width: 768px) {
+    .listProject {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+   }
+}
 /* preview list project */
 .previewtwo__image {
     object-fit: cover;
