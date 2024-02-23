@@ -5,7 +5,7 @@ const mysql = require('mysql2/promise');
 const server = express();
 server.use(cors())
 const port = 5001;
-server.use(express.json()) //esta linea no estaba y no llegaban los datos del body
+server.use(express.json({limit: '25mb'})) //esta linea no estaba y no llegaban los datos del body
 server.set("view engine", "ejs");
 
 async function getDB (){
@@ -56,9 +56,10 @@ server.post('/addProject', async (req, res) => {
         lastInsertAuthor //quitamos la de authorId ya q es esta la buena
     ]);
     conex.end();
+    console.log(resultProject.insertId);
     res.json({
         success: true,
-        cardURL: `http://localhost/detail/${resultProject.insertId}`
+        cardURL: `http://localhost:5001/detail/${resultProject.insertId}`
     });
 });
 
