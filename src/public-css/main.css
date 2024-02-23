@@ -1,0 +1,260 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+/* Header */
+.header {
+    background: #d5cfeb;
+    background: linear-gradient(0deg, #9ca8ff 10%, #d5cfeb 100%);
+    height: 10vh;
+    padding: 20px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__title {
+    font-size: 25px;
+}
+
+.nav___title:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.nav__logo {
+    height: 30px;
+    width: 30px;
+}
+.link {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+
+}
+.link:focus {
+    color:#dafe99;
+}
+
+.link:hover {
+    color: #FFA4B8;
+}
+
+.link:active {
+    color: #FFA4B8 ;
+}
+
+
+/* main */
+.main {
+    background-color: #9ca8ff;
+    min-height: 83vh;
+    text-align: center;
+    padding: 10px;
+}
+
+/*list project */
+.listProject {
+    list-style: none;
+    padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .listProject {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+/* preview list project */
+.previewtwo__image {
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+@media (min-width: 768px) {
+    .previewtwo__image {
+        width: 350px;
+    }
+}
+
+.previewtwo__card {
+    transform: translateY(-40px);
+    width: 300px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .previewtwo__card {
+        width: 350px;
+    }
+}
+
+/* card */
+.cardtwo {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: #d5cfeb;
+    color: #2d2d2d;
+    border-radius: 20px;
+    border: 1px solid #7b5bc7;
+}
+
+@media (min-width: 768px) {
+    .cardtwo {
+        width: 85%;
+    }
+}
+
+.texttwo {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.texttwo__subtitle {
+    font-size: 8px;
+    border-bottom: 1px solid #2d2d2d;
+    padding-bottom: 5px;
+}
+
+.texttwo__title {
+    color: #2d2d2d;
+    font-family: Poppins;
+    font-size: 14px;
+    margin-top: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.texttwo__slogan {
+    color: #575757;
+    font-family: Poppins;
+    font-size: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.texttwo__desc {
+    color: rgba(62, 62, 62, 0.88);
+    font-family: Poppins;
+    font-size: 8px;
+    line-height: 14.1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-top: 5px;
+}
+
+.texttwo__technologies {
+    color: #2d2d2d;
+    font-size: 12px;
+}
+
+.texttwo__icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.texttwo__icons--link {
+    color: #7b5bc7;
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .texttwo__subtitle {
+        font-size: 10px;
+    }
+
+    .texttwo__desc {
+        font-size: 12px;
+    }
+
+    .texttwo__title {
+        font-size: 20px;
+    }
+
+    .texttwo__slogan {
+        font-size: 16px;
+    }
+
+    .texttwo__text {
+        font-size: 12px;
+    }
+}
+
+.profile {
+    width: 40%;
+    text-align: center;
+}
+
+.profile__image {
+    border-radius: 50%;
+    width: 100px;
+    height: 80px;
+}
+
+.profile__job {
+    color: #575757;
+    font-size: 8px;
+    font-family: Poppins;
+}
+
+.profile__name {
+    font-size: 14px;
+    color: #2d2d2d;
+    font-family: Poppins;
+}
+
+@media (min-width: 768px) {
+    .profile__job {
+        font-size: 12px;
+    }
+
+    .profile__name {
+        font-size: 16px;
+    }
+}
+
+/* Footer */
+.footer {
+    background: #9ca8ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    height: 7vh;
+}
+.footer__copy {
+    font-family: Poppins;
+        font-size: 12px;
+        color: white;
+        height: fit-content;
+        order: 2;
+    }
+
+.footer__logo {
+        height: 30px;
+        width: 30px;
+        align-self: center;
+        order: 1;
+    }

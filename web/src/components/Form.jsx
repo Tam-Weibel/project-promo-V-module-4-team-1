@@ -126,7 +126,7 @@ function Form({
           <GetAvatar
             setFormData={setFormData}
             text="Subir foto de proyecto"
-            name="photo"
+            name="image"
             formData={formData}
             setImageSize={setImageSize}
             setMissingImage={setMissingImage}
@@ -134,7 +134,7 @@ function Form({
           <GetAvatar
             setFormData={setFormData}
             text="Subir foto de autora"
-            name="image"
+            name="photo"
             formData={formData}
             setImageSize={setImageSize}
             setMissingImage={setMissingImage}
