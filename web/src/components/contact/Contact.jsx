@@ -11,9 +11,12 @@ function Contact({team}) {
     )
   })
   return (
-    <div  className='contact'>
-      {renderTeam}
-    </div>
+   <section className='contact'>
+      <h2 className='contact__title'>titulo que esta pensando angela</h2>
+      <div  className='contact__cards'>
+        {renderTeam}
+      </div>
+    </section>
   )
 }
 Contact.propTypes = {

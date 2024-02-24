@@ -74,10 +74,15 @@
 
     gap: 15px;
   
-    &__image {
+    &__figure {
       border-radius: 50%;
       width: 100px;
       height: 100px;
+      overflow: hidden;
+      &--img{
+        width: 100%; 
+        object-fit: cover;
+      }
     }
     &__job {
       font-size: 13px;

@@ -17,7 +17,7 @@ const ContactCard = ({member}) => {
   
 
   return (
-    <>
+    <>  
         <article className='cardTwo'>
         <div className='textTwo'>
           <h2 className='textTwo__name'>{member.name}</h2>
@@ -36,7 +36,9 @@ const ContactCard = ({member}) => {
         </div>
 
         <div className='profile'>
-          <img className='profile__image' src={photoSrc || user} alt='' />
+          <figure className='profile__figure'>
+            <img className='profile__figure--img' src={photoSrc || user} alt='' />
+          </figure>
           <p className='profile__job'>{member.job || 'Full Stack Developer'}</p>
           <p className='profile__tech'>{member.tech ||'React - JS - HTML - CSS'}</p>
         </div>

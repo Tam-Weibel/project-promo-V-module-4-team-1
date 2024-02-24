@@ -4,10 +4,18 @@
     background-color: $violet;
     min-height: 83vh;
     padding: 20px;
-    display: flex;
+    &__title{
+        font-family: $form;
+        color: $white;
+        text-align: center;
+        padding: 20px;
+    }
+    &__cards{
+        display: flex;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 20px;
+    }
 }
