@@ -39,6 +39,17 @@ const getProjects = () => {
     });
 };
 
-const object = {callToApi: callToApi, getProjects: getProjects} 
+const getTeam = () => {
+    return fetch ("http://localhost:5001/getteam")
+    .then((response) => response.json())
+    .then((responseData) => {
+        return (responseData);
+    })
+    .catch((error)=> {
+        console.error("Error calling API:", error);
+    });
+};
+
+const object = {callToApi: callToApi, getProjects: getProjects, getTeam: getTeam} 
 
 export default object;

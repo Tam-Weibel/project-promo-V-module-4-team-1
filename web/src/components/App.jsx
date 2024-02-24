@@ -56,6 +56,13 @@ function App() {
       photo: '',
     }
   );
+  const [team, setTeam] = useState([]);
+  
+  useEffect(() => {
+    object.getTeam().then((responseData) => {
+      setTeam(responseData.data);
+    });
+  }, []);
 
   useEffect(() => {
     object.getProjects().then((responseData) => {
@@ -136,7 +143,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path='/contact' element={<Contact />} />
+        <Route path='/contact' element={<Contact team={team}/>} />
         <Route path='/' element={<LandingPage formData={formData} />} />
         <Route
           path='/cardProject'

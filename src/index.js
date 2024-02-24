@@ -22,7 +22,16 @@ async function getDB (){
 server.listen(port, ()=>{
     console.log(`El servidor se esta ejecutando en el puerto ${port}`)
 });
+server.get('/getteam', async (req, res) => {
+    const conex = await getDB();
+    const sql = 'SELECT * FROM team';
+    const [results, fields] = await conex.query(sql);
+    console.log(results);
+    console.log(fields);
 
+    conex.end();
+    res.json({success: true, data: results});
+})
 server.get('/getprojects', async (req, res) => {
     const conex = await getDB();
     const sql = 'SELECT * FROM project, author where author.id = project.author_id';
@@ -73,6 +82,7 @@ server.get('/detail/:id', async(req,res)=> {
 
     res.render('detail', { project: resultProject[0]});
 });
+
 
 const staticServer = "./web/dist";
 server.use(express.static(staticServer));
