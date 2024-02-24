@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 function Contact({team}) {
   const renderTeam = team.map((member) => {
     return  (
-        < ContactCard member={member} />
+      <div key={member.team_id}>
+        < ContactCard member={member}/>
+      </div>
     )
   })
   return (

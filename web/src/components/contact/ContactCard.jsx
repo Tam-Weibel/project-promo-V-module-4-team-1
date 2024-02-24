@@ -1,7 +1,21 @@
 import '../../scss/layout/ContactCard.scss';
+import React, { useState, useEffect } from 'react';
 import user from '../../images/user.png';
+import PropTypes from 'prop-types';
 
 const ContactCard = ({member}) => {
+  const [photoSrc, setPhotoSrc] = useState(null);
+
+  useEffect(() => {
+    if (member.photo) {
+      const uint8Array = new Uint8Array(member.photo.data);
+      const base64 = btoa(String.fromCharCode.apply(null, uint8Array));
+      const photoSrc = `data:image/png;base64,${base64}`;
+      setPhotoSrc(photoSrc);
+    }
+  }, [member.photo]);
+  
+
   return (
     <>
         <article className='cardTwo'>
@@ -15,14 +29,14 @@ const ContactCard = ({member}) => {
             <a href={member.linkedin} target='_blank'  rel="noreferrer" className='textTwo__icons--link' > 
               <i className='fa-brands fa-linkedin'></i>
             </a>
-            <a href={member.email} target='_blank'  rel="noreferrer" className='textTwo__icons--link' > 
-                <i className="fa-solid fa-envelope"></i>
+            <a href={"mailto:" + member.email} target='_blank'  rel="noreferrer" className='textTwo__icons--link' > 
+              <i className="fa-solid fa-envelope"></i>
             </a>
           </section>
         </div>
 
         <div className='profile'>
-          <img className='profile__image' src={member.photo || user} alt='' />
+          <img className='profile__image' src={photoSrc || user} alt='' />
           <p className='profile__job'>{member.job || 'Full Stack Developer'}</p>
           <p className='profile__tech'>{member.tech ||'React - JS - HTML - CSS'}</p>
         </div>
@@ -30,5 +44,7 @@ const ContactCard = ({member}) => {
     </>
   )
 }
-
+ContactCard.propTypes = {
+  team: PropTypes.object
+};
 export default ContactCard
