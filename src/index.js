@@ -5,16 +5,16 @@ const mysql = require('mysql2/promise');
 const server = express();
 require('dotenv').config();
 server.use(cors())
-const port = process.env.PORT;
+const port = 5001;
 server.use(express.json({limit: '25mb'}))
 server.set("view engine", "ejs");
 
 async function getDB (){
     const dataBase = await mysql.createConnection({
         host: 'sql.freedb.tech',
-        user: process.env.USER_DB,
-        password: process.env.USER_PASS,
-        database: process.env.DB_NAME,
+        user: 'freedb_Diany0121',
+        password: 'V7#FvR4*EZjUJva',
+        database: 'freedb_cookieproject',
     });
     await dataBase.connect();
     return dataBase;
@@ -27,8 +27,6 @@ server.get('/getteam', async (req, res) => {
     const conex = await getDB();
     const sql = 'SELECT * FROM team';
     const [results, fields] = await conex.query(sql);
-    console.log(results);
-    console.log(fields);
 
     conex.end();
     res.json({success: true, data: results});
@@ -37,14 +35,11 @@ server.get('/getprojects', async (req, res) => {
     const conex = await getDB();
     const sql = 'SELECT * FROM project, author where author.id = project.author_id';
     const [results, fields] = await conex.query(sql);
-    console.log(results);
-    console.log(fields);
 
     conex.end();
     res.json({success: true, data: results});
 })
 server.post('/addProject', async (req, res) => {
-    console.log("se ha hecho una petición");
     const conex = await getDB();
     const insertAuthor = 'INSERT INTO author (nameAut, job, photo) values (?,?,?)'; 
     const [resultAuthor] = await conex.query(insertAuthor, [
@@ -66,7 +61,6 @@ server.post('/addProject', async (req, res) => {
         lastInsertAuthor
     ]);
     conex.end();
-    console.log(resultProject.insertId);
     res.json({
         success: true,
         cardURL: `http://localhost:5001/detail/${resultProject.insertId}`

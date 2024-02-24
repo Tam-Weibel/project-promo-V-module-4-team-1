@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import user from '../images/user.png';
 
 function Card({project}) {
-    console.log(project);
   return (
     <article className='cardtwo'>
         <div className='texttwo'>
