@@ -6,7 +6,7 @@ const server = express();
 require('dotenv').config();
 server.use(cors())
 const port = process.env.PORT;
-server.use(express.json({limit: '25mb'})) //esta linea no estaba y no llegaban los datos del body
+server.use(express.json({limit: '25mb'}))
 server.set("view engine", "ejs");
 
 async function getDB (){
@@ -45,7 +45,7 @@ server.post('/addProject', async (req, res) => {
     ]);
     const lastInsertAuthor = resultAuthor.insertId;
 
-    const insertProject = 'INSERT INTO project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, author_id) values (?,?,?,?,?,?,?,?)'; //author_id tiene q ir al final para estar igual que lastInsertAuthor
+    const insertProject = 'INSERT INTO project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, author_id) values (?,?,?,?,?,?,?,?)';
     const [resultProject] = await conex.query(insertProject, [
         req.body.name,
         req.body.desc,
@@ -54,7 +54,7 @@ server.post('/addProject', async (req, res) => {
         req.body.repo,
         req.body.demo,
         req.body.slogan,
-        lastInsertAuthor //quitamos la de authorId ya q es esta la buena
+        lastInsertAuthor
     ]);
     conex.end();
     console.log(resultProject.insertId);
