@@ -14,7 +14,7 @@ async function getDB (){
         host: 'sql.freedb.tech',
         user: process.env.USER_DB,
         password: process.env.USER_PASS,
-        database: 'freedb_cookieproject',
+        database: process.env.DB_NAME,
     });
     await dataBase.connect();
     return dataBase;
