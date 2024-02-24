@@ -33,7 +33,9 @@ function Preview({ formData }) {
         </div>
 
         <div className='profile'>
-          <img className='profile__image' src={formData.photo || user} alt='' />
+          <figure className='profile__figure'>
+            <img className='profile__figure--img' src={formData.photo || user} alt='' />
+          </figure>
           <p className='profile__job'> {formData.job || 'Full Stack Developer'} </p>
           <p className='profile__name'> {formData.autor || 'Emmelie Björklund'} </p>
         </div>

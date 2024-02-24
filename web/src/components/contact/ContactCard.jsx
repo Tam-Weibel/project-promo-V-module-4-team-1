@@ -47,6 +47,6 @@ const ContactCard = ({member}) => {
   )
 }
 ContactCard.propTypes = {
-  team: PropTypes.object
+  member: PropTypes.object.isRequired
 };
 export default ContactCard

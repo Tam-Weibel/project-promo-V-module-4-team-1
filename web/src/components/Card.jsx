@@ -31,7 +31,9 @@ function Card({project}) {
         </div>
 
         <div className='profile'>
-          <img className='profile__image' src={project.photo || user} alt='' />
+          <figure className='profile__figure'>
+            <img className='profile__figure--img' src={project.photo || user} alt='' />
+          </figure>
           <p className='profile__job'> {project.job || 'Full Stack Developer'} </p>
           <p className='profile__name'> {project.nameAut || 'Emmelie Björklund'} </p>
         </div>
