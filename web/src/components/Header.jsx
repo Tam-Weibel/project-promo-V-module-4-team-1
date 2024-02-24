@@ -8,9 +8,11 @@ function Header() {
     <header className="header">
       <nav className="nav">
         <Link to="/" className="link">
-        <i className="fa-solid fa-house nav__title"></i>
+          <i className="fa-solid fa-house nav__title"></i>
         </Link>
-        <img className="nav__logo" src={logocookie} alt="logo Cookie" />
+        <Link to="/contact" className="link">
+          <img className="nav__logo" src={logocookie} alt="logo Cookie" />
+        </Link>
       </nav>
     </header>
   );
