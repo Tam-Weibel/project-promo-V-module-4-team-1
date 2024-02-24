@@ -9,13 +9,6 @@ function Header() {
       <nav className="nav">
         <Link to="/" className="link">
         <i className="fa-solid fa-house nav__title"></i>
-        {/* <i className="fa-solid fa-door-open"></i> */}
-          {/* <i className="fa-solid fa-reply  nav__title"></i> */}
-          {/* <span className="nav__title"> */}
-          {/* <i class="fa-solid fa-laptop-code"></i> */}
-          {/* <i className="fa-brands fa-themeisle  nav__title--bird"></i> */}
-          {/* <i className="fa-solid fa-arrow-left-long  nav__title--arrow"></i> */}
-          {/* </span> */}
         </Link>
         <img className="nav__logo" src={logocookie} alt="logo Cookie" />
       </nav>
