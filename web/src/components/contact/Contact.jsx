@@ -1,9 +1,9 @@
-import '../../scss/layout/Card.scss';
-import ContactCard from '../ContactCard';
+import '../../scss/layout/Contact.scss';
+import ContactCard from './ContactCard';
 
 function Contact() {
   return (
-    <div>
+    <div  className='contact'>
         <ContactCard />
         <ContactCard />
         <ContactCard />
