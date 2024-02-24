@@ -12,9 +12,9 @@ server.set("view engine", "ejs");
 async function getDB (){
     const dataBase = await mysql.createConnection({
         host: 'sql.freedb.tech',
-        user: process.env.USER_DB,
-        password: process.env.USER_PASS,
-        database: process.env.DB_NAME,
+        user: 'freedb_Diany0121',
+        password: 'V7#FvR4*EZjUJva',
+        database: 'freedb_cookieproject',
     });
     await dataBase.connect();
     return dataBase;
@@ -28,8 +28,6 @@ server.get('/getprojects', async (req, res) => {
     const conex = await getDB();
     const sql = 'SELECT * FROM project, author where author.id = project.author_id';
     const [results, fields] = await conex.query(sql);
-    console.log(results);
-    console.log(fields);
 
     conex.end();
     res.json({success: true, data: results});
@@ -57,7 +55,6 @@ server.post('/addProject', async (req, res) => {
         lastInsertAuthor
     ]);
     conex.end();
-    console.log(resultProject.insertId);
     res.json({
         success: true,
         cardURL: `http://localhost:5001/detail/${resultProject.insertId}`
