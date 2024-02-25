@@ -12,7 +12,9 @@ function Contact({team}) {
   })
   return (
    <section className='contact'>
-      <h2 className='contact__title'>titulo que esta pensando angela</h2>
+      <h2 className='contact__title'>¡Bienvenidos!</h2>
+      <h3 className='contact__h3'> Conoce a las mentes creativas detrás de nuestra página web</h3>
+      <p className='contact__p'>¡Hola y bienvenidos a nuestro espacio digital! Somos un equipo apasionado de creadoras comprometidas con dar vida a experiencias web cautivadoras. Permítenos presentarte a las mentes creativas detrás de cada línea de código, diseño elegante y contenido inspirador que encuentras aquí.</p>
       <div  className='contact__cards'>
         {renderTeam}
       </div>

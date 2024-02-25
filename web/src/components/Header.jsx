@@ -1,19 +1,47 @@
 import { Link } from 'react-router-dom';
-import logocookie from '../images/cookie.png';
+import { useState } from 'react';
+// import logocookie from '../images/cookie.png';
 import '../scss/core/Variables.scss';
 import '../scss/layout/Header.scss';
 
 function Header() {
+  const [menu, setMenu] = useState(false);
+  const toggleMenu = () => {
+    setMenu(!menu);
+  };
+
   return (
     <header className="header">
       <nav className="nav">
         <Link to="/" className="link">
           <i className="fa-solid fa-house nav__title"></i>
         </Link>
-        <Link to="/contact" className="link">
-          <img className="nav__logo" src={logocookie} alt="logo Cookie" />
-        </Link>
+        <div onClick={toggleMenu} className="navBtn">
+          <i className="fa-solid fa-bars navBtn_bars"></i>
+        </div>
       </nav>
+      <ul className={`hamburger ${menu ? 'isActive' : ''}`}>
+          <li className="hamburger__li">
+            <Link to="/contact" className="link" onClick={toggleMenu}>
+              <h3>Conócenos</h3>
+            </Link>
+          </li>
+          <li className="hamburger__li">
+            <Link to="/cardProject" className="link" onClick={toggleMenu}>
+              <h3>Crea tu tarjeta</h3>
+            </Link>
+          </li>
+          <li className="hamburger__li">
+            <Link to="/listProject" className="link" onClick={toggleMenu}>
+              <h3>Mira tus tarjetas</h3>
+            </Link>
+          </li>
+          <li className="hamburger__li">
+            <Link to="/contact" className="link" onClick={toggleMenu}>
+              <h3>Contacta</h3>
+            </Link>
+          </li>
+        </ul>
     </header>
   );
 }
