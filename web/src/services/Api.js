@@ -13,13 +13,13 @@ const callToApi = (formData) => {
         console.error("Error calling API:", error);
 
         formData = {
-            name: formData.name.value,
+            namePj: formData.namePj.value,
             slogan: formData.slogan.value,
             technologies: formData.technologies.value,
-            demo: formData.demo.value,
-            repo: formData. repo.value,
-            desc: formData.desc.value,
-            autor: formData.autor.value,
+            demoUrl: formData.demoUrl.value,
+            gitUrl: formData.gitUrl.value,
+            descriptionPj: formData.descriptionPj.value,
+            nameAut: formData.nameAut.value,
             job: formData.job.value,
             image: formData.image.value,
             photo: formData.photo.value,

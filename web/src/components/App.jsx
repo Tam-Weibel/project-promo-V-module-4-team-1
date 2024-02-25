@@ -23,13 +23,13 @@ function App() {
 
   //Variables estado
   const [formData, setFormData] = useState({
-    name: "",
+    namePj: "",
     slogan: "",
     technologies: "",
-    demo: "",
-    repo: "",
-    desc: "",
-    autor: "",
+    demoUrl: "",
+    gitUrl: "",
+    descriptionPj: "",
+    nameAut: "",
     job: "",
     image: "",
     photo: "",
@@ -43,13 +43,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState(
     localStorage.get("user") || {
-      name: "",
+      namePj: "",
       slogan: "",
       technologies: "",
-      demo: "",
-      repo: "",
-      desc: "",
-      autor: "",
+      demoUrl: "",
+      gitUrl: "",
+      descriptionPj: "",
+      nameAut: "",
       job: "",
       image: "",
       photo: "",
@@ -79,13 +79,13 @@ function App() {
 
   useEffect(() => {
     localStorage.set("user", {
-      name: formData.name,
+      namePj: formData.namePj,
       slogan: formData.slogan,
       technologies: formData.technologies,
-      demo: formData.demo,
-      repo: formData.repo,
-      desc: formData.desc,
-      autor: formData.autor,
+      demoUrl: formData.demoUrl,
+      gitUrl: formData.gitUrl,
+      descriptionPj: formData.descriptionPj,
+      nameAut: formData.nameAut,
       job: formData.job,
       image: formData.image,
       photo: formData.photo,
@@ -114,13 +114,13 @@ function App() {
     ev.preventDefault();
     localStorage.remove("user");
     setFormData({
-      name: "",
+      namePj: "",
       slogan: "",
       technologies: "",
-      demo: "",
-      repo: "",
-      desc: "",
-      autor: "",
+      demoUrl: "",
+      gitUrl: "",
+      descriptionPj: "",
+      nameAut: "",
       job: "",
       image: "",
       photo: "",
