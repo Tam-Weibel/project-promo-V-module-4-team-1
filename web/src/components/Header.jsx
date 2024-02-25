@@ -21,27 +21,27 @@ function Header() {
         </div>
       </nav>
       <ul className={`hamburger ${menu ? 'isActive' : ''}`}>
-          <li className="hamburger__li">
-            <Link to="/contact" className="link" onClick={toggleMenu}>
-              <h3>Conócenos</h3>
-            </Link>
-          </li>
-          <li className="hamburger__li">
-            <Link to="/cardProject" className="link" onClick={toggleMenu}>
-              <h3>Crea tu tarjeta</h3>
-            </Link>
-          </li>
-          <li className="hamburger__li">
-            <Link to="/listProject" className="link" onClick={toggleMenu}>
-              <h3>Mira tus tarjetas</h3>
-            </Link>
-          </li>
-          <li className="hamburger__li">
-            <Link to="/contact" className="link" onClick={toggleMenu}>
-              <h3>Contacta</h3>
-            </Link>
-          </li>
-        </ul>
+        <li className="hamburger__li">
+          <Link to="/contact" className="link" onClick={toggleMenu}>
+            <h3>Contacta</h3>
+          </Link>
+        </li>
+        <li className="hamburger__li">
+          <Link to="/contact" className="link" onClick={toggleMenu}>
+            <h3>Conócenos</h3>
+          </Link>
+        </li>
+        <li className="hamburger__li">
+          <Link to="/cardProject" className="link" onClick={toggleMenu}>
+            <h3>Crea tu tarjeta</h3>
+          </Link>
+        </li>
+        <li className="hamburger__li">
+          <Link to="/listProject" className="link" onClick={toggleMenu}>
+            <h3>Mira tus tarjetas</h3>
+          </Link>
+        </li>
+      </ul>
     </header>
   );
 }
