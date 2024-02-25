@@ -8,7 +8,6 @@ function Card({project}) {
     <article className='cardtwo'>
         <div className='texttwo'>
           <p className='texttwo__subtitle'>Personal Project Card</p>
-          {/* <hr className='text__line' /> la idea es quitar este hr y poner un boder bottom al subtitle */}
 
           <h2 className='texttwo__title'> {project.namePj || 'Elegant Workspace'} </h2>
           <p className='texttwo__slogan'> {project.slogan || 'Diseños Exclusivos'} </p>

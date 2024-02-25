@@ -2,11 +2,12 @@ import '../scss/layout/CardLink.scss';
 import PropTypes from 'prop-types';
 
 function Card({cardLink, hideCardLink}) {
-  let hideLoader = cardLink !== '' ? 'hidden' : '';
+  let showLoader = cardLink === '' ? '' : 'hidden';
+  let showMessage = cardLink !== '' ? '' : 'hidden';
   return (
     <section className={`cardLink ${hideCardLink}`}>
-      <span className='cardLink__text'> La tarjeta ha sido creada: </span>
-      <span className={`cardLink__loader ${hideLoader}`}></span>
+      <span className={`cardLink__text ${showMessage}`}> La tarjeta ha sido creada:</span>
+      <span className={`cardLink__loader ${showLoader}`}></span>
       <a
         href={cardLink}
         className='cardLink__url'
