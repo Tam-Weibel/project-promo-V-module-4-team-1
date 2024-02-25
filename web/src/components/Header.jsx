@@ -3,6 +3,7 @@ import { useState } from 'react';
 // import logocookie from '../images/cookie.png';
 import '../scss/core/Variables.scss';
 import '../scss/layout/Header.scss';
+import '../scss/layout/Link.scss';
 
 function Header() {
   const [menu, setMenu] = useState(false);
