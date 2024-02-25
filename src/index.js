@@ -33,7 +33,6 @@ server.get('/getprojects', async (req, res) => {
     res.json({success: true, data: results});
 })
 server.post('/addProject', async (req, res) => {
-    console.log("se ha hecho una petición");
     const conex = await getDB();
     const insertAuthor = 'INSERT INTO author (nameAut, job, photo) values (?,?,?)'; 
     const [resultAuthor] = await conex.query(insertAuthor, [
