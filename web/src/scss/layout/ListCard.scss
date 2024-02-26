@@ -1,10 +1,10 @@
 @import '../core/Variables.scss';
 
-.cardtwo {
+.listCard {
   height: 220px;
   display: flex;
   flex-direction: row-reverse;
-  gap: 10px;
+  gap: 20px;
   padding: 20px;
   margin: 0 auto;
   background-color: $violettwo;
@@ -13,7 +13,7 @@
   border: 1px solid $violetborder;
 }
 
-.texttwo {
+.projectList {
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -42,17 +42,6 @@
     overflow-wrap: break-word;
   }
 
-  &__desc {
-    color: $greyishBrown88;
-    font-family: $card;
-    // font-size: 8px;
-    line-height: 14.1px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    margin-top: 5px;
-    font-size: calc(1vw + 1vh);
-  }
-
   &__technologies {
     color: $greytext;
     font-size: 12px;
@@ -76,13 +65,9 @@
       font-size: 10px;
     }
 
-    &__desc {
-      font-size: 12px;
+    &__title {
+      font-size: 16px;
     }
-
-    // &__title {
-    //   font-size: 16px;
-    // }
 
     &__slogan {
       font-size: 16px;
@@ -94,15 +79,19 @@
   }
 }
 
-.profile {
+.profileList {
   width: 40%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
   &__figure {
-    border-radius: 50%;
     width: 100px;
     height: 100px;
     &--img {
+      border-radius: 50%;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -120,14 +109,13 @@
     color: $greytext;
     font-family: $card;
   }
+  @media (min-width: 768px) {
+    &__job {
+      font-size: 12px;
+    }
 
-  // @media (min-width: 768px) {
-  //   &__job {
-  //     font-size: 12px;
-  //   }
-
-  //   &__name {
-  //     font-size: 16px;
-  //   }
-  // }
+    &__name {
+      font-size: 16px;
+    }
+  }
 }
