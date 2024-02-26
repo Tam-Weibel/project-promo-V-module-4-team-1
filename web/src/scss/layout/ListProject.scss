@@ -6,10 +6,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 40px;
   justify-content: space-evenly;
   &__li{
     padding-bottom: 40px;
+  }
+  &__li:hover{
+    transform: scale(1.1);
   }
 }
 
