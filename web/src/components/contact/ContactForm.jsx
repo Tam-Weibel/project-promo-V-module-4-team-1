@@ -21,7 +21,7 @@ function ContactForm() {
           className="inputForm"
           type="text"
           id="name"
-          placeholder="Nombre..."
+          placeholder="Nombre Apellidos"
           required
         />
 
@@ -37,7 +37,7 @@ function ContactForm() {
         />
 
         <label htmlFor="number"  className="labelForm">Teléfono</label>
-        <input className="inputForm" type="tel" id="number" placeholder="Ej:123456789" />
+        <input className="inputForm" type="tel" id="number" placeholder="Ej: 123456789" />
 
         <label htmlFor="message"  className="labelForm">
           Mensaje 
