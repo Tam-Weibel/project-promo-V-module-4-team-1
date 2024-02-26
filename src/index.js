@@ -34,7 +34,8 @@ server.get('/getteam', async (req, res) => {
 })
 server.get('/getprojects', async (req, res) => {
     const conex = await getDB();
-    const sql = 'SELECT * FROM project, author where author.id = project.author_id';
+    const sql = `SELECT project.id as idProject, author.id as idAuthor, namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, nameAut, job, photo
+    FROM project, author where author.id = project.author_id`;
     const [results, fields] = await conex.query(sql);
 
     conex.end();
@@ -70,7 +71,8 @@ server.post('/addProject', async (req, res) => {
 
 server.get('/detail/:id', async(req,res)=> {
     const { id } = req.params;
-    const selectProjectId = 'SELECT * FROM project, author where author.id = project.author_id and project.id = ?';
+    const selectProjectId = `SELECT project.id as idProject, author.id as idAuthor, namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, nameAut, job, photo
+    FROM project, author where author.id = project.author_id and project.id = ?`;
     const conex = await getDB();
     const [resultProject] = await conex.query(selectProjectId, [id]);
 

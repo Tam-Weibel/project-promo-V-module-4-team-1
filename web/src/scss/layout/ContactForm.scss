@@ -1,0 +1,21 @@
+@import "../core/Variables.scss";
+
+
+.herocontact {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 5px;
+    
+  
+    &__title {
+      font-family: $form;
+      color: $white;
+    }
+  
+    &__text {
+      font-family: $card;
+      color: $white;
+      font-style: italic;
+    }
+  }
