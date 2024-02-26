@@ -3,12 +3,16 @@
 .listProject {
   list-style: none;
   padding-top: 20px;
-  @media (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-evenly;
+  &__li{
+    padding-bottom: 40px;
+  }
+  &__li:hover{
+    transform: scale(1.1);
   }
 }
 

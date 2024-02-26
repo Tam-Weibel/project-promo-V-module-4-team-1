@@ -8,7 +8,7 @@ import PreviewListProject from './PreviewListProject.jsx';
 function ListProject({ projectList }) {
   const renderProject = projectList.map((project, index) => {
     return  (
-      <li key={index}>
+      <li key={index} className="listProject__li">
         < PreviewListProject project={project} />
       </li>
     )

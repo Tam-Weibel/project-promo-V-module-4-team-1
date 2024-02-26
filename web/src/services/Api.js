@@ -6,7 +6,6 @@ const callToApi = (formData) => {
     })
     .then((response) => response.json())
     .then((responseData) => {
-        console.log(responseData);
         return (responseData);
     
     })
@@ -14,13 +13,13 @@ const callToApi = (formData) => {
         console.error("Error calling API:", error);
 
         formData = {
-            name: formData.name.value,
+            namePj: formData.namePj.value,
             slogan: formData.slogan.value,
             technologies: formData.technologies.value,
-            demo: formData.demo.value,
-            repo: formData. repo.value,
-            desc: formData.desc.value,
-            autor: formData.autor.value,
+            demoUrl: formData.demoUrl.value,
+            gitUrl: formData.gitUrl.value,
+            descriptionPj: formData.descriptionPj.value,
+            nameAut: formData.nameAut.value,
             job: formData.job.value,
             image: formData.image.value,
             photo: formData.photo.value,
@@ -39,6 +38,17 @@ const getProjects = () => {
     });
 };
 
-const object = {callToApi: callToApi, getProjects: getProjects} 
+const getTeam = () => {
+    return fetch ("http://localhost:5001/getteam")
+    .then((response) => response.json())
+    .then((responseData) => {
+        return (responseData);
+    })
+    .catch((error)=> {
+        console.error("Error calling API:", error);
+    });
+};
+
+const object = {callToApi: callToApi, getProjects: getProjects, getTeam: getTeam} 
 
 export default object;
