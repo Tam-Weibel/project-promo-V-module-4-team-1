@@ -7,7 +7,6 @@ function Preview({ formData }) {
   return (
     <section className='preview'>
       <img className='preview__image' src={formData.image || cover} alt='' />
-
       <article className='card'>
         <div className='text'>
           <p className='text__subtitle'>Personal Project Card</p>
@@ -30,12 +29,12 @@ function Preview({ formData }) {
           </section>
         </div>
 
-        <div className='profile'>
-          <figure className='profile__figure'>
-            <img className='profile__figure--img' src={formData.photo || user} alt='' />
+        <div className='previewProfile'>
+          <figure className='previewProfile__figure'>
+            <img className='previewProfile__figure--img' src={formData.photo || user} alt='' />
           </figure>
-          <p className='profile__job'> {formData.job || 'Full Stack Developer'} </p>
-          <p className='profile__name'> {formData.nameAut || 'Emmelie Björklund'} </p>
+          <p className='previewProfile__job'> {formData.job || 'Full Stack Developer'} </p>
+          <p className='previewProfile__name'> {formData.nameAut || 'Emmelie Björklund'} </p>
         </div>
       </article>
     </section>
