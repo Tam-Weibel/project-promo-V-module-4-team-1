@@ -36,7 +36,7 @@ function ContactForm() {
           required
         />
 
-        <label htmlFor="number"  className="labelForm">Teléfono</label>
+        <label htmlFor="number"  className="labelForm">Teléfono (opcional)</label>
         <input className="inputForm" type="tel" id="number" placeholder="Ej: 123456789" />
 
         <label htmlFor="message"  className="labelForm">
