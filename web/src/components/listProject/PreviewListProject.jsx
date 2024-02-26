@@ -7,6 +7,7 @@ import '../../scss/layout/Card.scss';
 import Card from '../Card';
 
 function PreviewListProject({ project }) {
+  console.log(project)
   return (
     <section className='previewtwo'>
       <img className='previewtwo__image' src={project.image || cover} alt='' />

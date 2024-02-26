@@ -23,7 +23,7 @@ function Header() {
       </nav>
       <ul className={`hamburger ${menu ? 'isActive' : ''}`}>
         <li className="hamburger__li">
-          <Link to="/contact" className="link" onClick={toggleMenu}>
+          <Link to="/contactform" className="link" onClick={toggleMenu}>
             <h3>Contacta</h3>
           </Link>
         </li>

@@ -17,6 +17,7 @@ import CardProject from './cardProject/CardProject.jsx';
 import ListProject from './listProject/ListProject.jsx';
 import Footer from './Footer.jsx';
 import Contact from './contact/Contact.jsx';
+import ContactForm from './contact/ContactForm.jsx';
 
 function App() {
   //Dónde lo usamos?
@@ -147,6 +148,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/contact' element={<Contact team={team}/>} />
+        <Route path='/contactform' element={<ContactForm />} />
         <Route path='/' element={<LandingPage formData={formData} />} />
         <Route
           path='/cardProject'
@@ -170,6 +172,7 @@ function App() {
           path='/listProject'
           element={<ListProject projectList={projectList} />}
         />
+        
       </Routes>
       <Footer />
     </>
