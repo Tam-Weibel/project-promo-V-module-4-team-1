@@ -5,7 +5,8 @@ const mysql = require('mysql2/promise');
 const server = express();
 require('dotenv').config();
 server.use(cors())
-const port = process.env.PORT;
+const port = 5001;
+
 server.use(express.json({limit: '25mb'}))
 server.set("view engine", "ejs");
 
@@ -23,7 +24,14 @@ async function getDB (){
 server.listen(port, ()=>{
     console.log(`El servidor se esta ejecutando en el puerto ${port}`)
 });
+server.get('/getteam', async (req, res) => {
+    const conex = await getDB();
+    const sql = 'SELECT * FROM team';
+    const [results, fields] = await conex.query(sql);
 
+    conex.end();
+    res.json({success: true, data: results});
+})
 server.get('/getprojects', async (req, res) => {
     const conex = await getDB();
     const sql = 'SELECT * FROM project, author where author.id = project.author_id';
@@ -70,6 +78,7 @@ server.get('/detail/:id', async(req,res)=> {
 
     res.render('detail', { project: resultProject[0]});
 });
+
 
 const staticServer = "./web/dist";
 server.use(express.static(staticServer));

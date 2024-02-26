@@ -1,0 +1,36 @@
+@import "../core/Variables.scss";
+
+.contact{
+    background-color: $violet;
+    min-height: 83vh;
+    padding: 20px;
+    &__title{
+        font-family: $form;
+        color: $white;
+        text-align: center;
+        padding: 20px;
+    }
+    &__h3{
+        font-family: $form;
+        color: $white;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    &__p{
+        color: $white;
+        text-align: center;
+        font-family: $form;
+        font-style: italic;
+        padding-bottom: 40px;
+    }
+    &__cards{
+        display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    }
+
+}
