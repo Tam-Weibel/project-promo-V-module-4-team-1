@@ -1,13 +1,15 @@
 @import "../core/Variables.scss";
 @import "../layout/Btn.scss";
 
-.form {
+.contactForm {
   display: flex;
   flex-direction: column;
   text-align: center;
   justify-content: center;
   align-items: flex-start;
   margin: 0 auto;
+  padding: 10%;
+  gap: 10px;
 }
 
 .herocontact {
