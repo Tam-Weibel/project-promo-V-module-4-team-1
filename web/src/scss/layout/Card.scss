@@ -31,6 +31,7 @@
       margin-top: 10px;
       word-wrap: break-word;
       overflow-wrap: break-word;
+      
     }
   
     &__slogan {
@@ -44,23 +45,26 @@
     &__desc {
       color: $greyishBrown88;
       font-family: $card;
-      font-size: 8px;
+      // font-size: 8px;
       line-height: 14.1px;
       word-wrap: break-word;
       overflow-wrap: break-word;
       margin-top: 5px;
+      font-size: calc(1vw + 1vh)
     }
   
     &__technologies {
       color: $greytext;
       font-size: 12px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
   
     &__icons {
       display: flex;
       justify-content: flex-end;
       gap: 15px;
-  
+      
       &--link {
         color: $violetborder;
         font-size: 18px;
@@ -76,9 +80,9 @@
         font-size: 12px;
       }
   
-      &__title {
-        font-size: 20px;
-      }
+      // &__title {
+      //   font-size: 16px;
+      // }
   
       &__slogan {
         font-size: 16px;
@@ -117,14 +121,14 @@
       font-family: $card;
     }
   
-    @media (min-width: 768px) {
-      &__job {
-        font-size: 12px;
-      }
+    // @media (min-width: 768px) {
+    //   &__job {
+    //     font-size: 12px;
+    //   }
   
-      &__name {
-        font-size: 16px;
-      }
-    }
+    //   &__name {
+    //     font-size: 16px;
+    //   }
+    // }
   }
   
