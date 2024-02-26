@@ -6,6 +6,7 @@ const server = express();
 require('dotenv').config();
 server.use(cors())
 const port = 5001;
+
 server.use(express.json({limit: '25mb'}))
 server.set("view engine", "ejs");
 
@@ -43,7 +44,7 @@ server.post('/addProject', async (req, res) => {
     const conex = await getDB();
     const insertAuthor = 'INSERT INTO author (nameAut, job, photo) values (?,?,?)'; 
     const [resultAuthor] = await conex.query(insertAuthor, [
-        req.body.autor,
+        req.body.nameAut,
         req.body.job,
         req.body.photo
     ]);
@@ -51,12 +52,12 @@ server.post('/addProject', async (req, res) => {
 
     const insertProject = 'INSERT INTO project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, author_id) values (?,?,?,?,?,?,?,?)';
     const [resultProject] = await conex.query(insertProject, [
-        req.body.name,
-        req.body.desc,
+        req.body.namePj,
+        req.body.descriptionPj,
         req.body.technologies,
         req.body.image,
-        req.body.repo,
-        req.body.demo,
+        req.body.gitUrl,
+        req.body.demoUrl,
         req.body.slogan,
         lastInsertAuthor
     ]);

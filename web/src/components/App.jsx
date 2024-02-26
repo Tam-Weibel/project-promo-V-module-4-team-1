@@ -24,16 +24,17 @@ function App() {
 
   //Variables estado
   const [formData, setFormData] = useState({
-    name: '',
-    slogan: '',
-    technologies: '',
-    demo: '',
-    repo: '',
-    desc: '',
-    autor: '',
-    job: '',
-    image: '',
-    photo: '',
+
+    namePj: "",
+    slogan: "",
+    technologies: "",
+    demoUrl: "",
+    gitUrl: "",
+    descriptionPj: "",
+    nameAut: "",
+    job: "",
+    image: "",
+    photo: "",
   });
 
   const [projectList, setProjectList] = useState([]);
@@ -43,17 +44,18 @@ function App() {
   const [missingImage, setMissingImage] = useState('hidden');
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState(
-    localStorage.get('user') || {
-      name: '',
-      slogan: '',
-      technologies: '',
-      demo: '',
-      repo: '',
-      desc: '',
-      autor: '',
-      job: '',
-      image: '',
-      photo: '',
+
+    localStorage.get("user") || {
+      namePj: "",
+      slogan: "",
+      technologies: "",
+      demoUrl: "",
+      gitUrl: "",
+      descriptionPj: "",
+      nameAut: "",
+      job: "",
+      image: "",
+      photo: "",
     }
   );
   const [team, setTeam] = useState([]);
@@ -86,14 +88,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.set('user', {
-      name: formData.name,
+
+    localStorage.set("user", {
+      namePj: formData.namePj,
       slogan: formData.slogan,
       technologies: formData.technologies,
-      demo: formData.demo,
-      repo: formData.repo,
-      desc: formData.desc,
-      autor: formData.autor,
+      demoUrl: formData.demoUrl,
+      gitUrl: formData.gitUrl,
+      descriptionPj: formData.descriptionPj,
+      nameAut: formData.nameAut,
       job: formData.job,
       image: formData.image,
       photo: formData.photo,
@@ -122,16 +125,16 @@ function App() {
     ev.preventDefault();
     localStorage.remove('user');
     setFormData({
-      name: '',
-      slogan: '',
-      technologies: '',
-      demo: '',
-      repo: '',
-      desc: '',
-      autor: '',
-      job: '',
-      image: '',
-      photo: '',
+      namePj: "",
+      slogan: "",
+      technologies: "",
+      demoUrl: "",
+      gitUrl: "",
+      descriptionPj: "",
+      nameAut: "",
+      job: "",
+      image: "",
+      photo: "",
     });
     setHideCardLink('hidden');
     setCardLink('');

@@ -12,8 +12,7 @@ function Card({project}) {
           <h2 className='texttwo__title'> {project.namePj || 'Elegant Workspace'} </h2>
           <p className='texttwo__slogan'> {project.slogan || 'Diseños Exclusivos'} </p>
           <p className='texttwo__desc'>
-            {project.descriptionPj ||
-              'Lorem, ipcorrupti ipsum!'}
+            {project.descriptionPj || 'Lorem, ipcorrupti ipsum!'}
           </p>
           <section className='texttwo__technologies'>
             <p className='texttwo__technologies--p'> {project.technologies || 'React JS - HTML -  CSS'}</p>

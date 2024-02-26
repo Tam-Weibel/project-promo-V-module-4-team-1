@@ -27,12 +27,12 @@ function Form({
           <hr className="project__section--line" />
         </section>
         <input
-          value={formData.name}
+          value={formData.namePj}
           onChange={handleInput}
           className="project__input"
           type="text"
           placeholder="Nombre del proyecto"
-          name="name"
+          name="namePj"
           id="nameId"
           maxLength="30"
           required
@@ -49,25 +49,25 @@ function Form({
           required
         />
         <input
-          value={formData.repo}
+          value={formData.gitUrl}
           onChange={handleInput}
           className="project__input"
           type="text"
-          name="repo"
+          name="gitUrl"
           id="repoId"
           placeholder="https://github.com/User/Repo/"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <input
-          value={formData.demo}
+          value={formData.demoUrl}
           onChange={handleInput}
           className="project__input"
           type="text"
           placeholder="https://User.github.io/Repo/"
-          name="demo"
+          name="demoUrl"
           id="demoId"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <input
@@ -82,12 +82,12 @@ function Form({
           required
         />
         <textarea
-          value={formData.desc}
+          value={formData.descriptionPj}
           onChange={handleInput}
           className=" project__textarea"
           type="text"
           placeholder="Breve descripción del proyecto..."
-          name="desc"
+          name="descriptionPj"
           id="descId"
           maxLength="150"
           required
@@ -101,12 +101,12 @@ function Form({
         </section>
 
         <input
-          value={formData.autor}
+          value={formData.nameAut}
           onChange={handleInput}
           className="project__input"
           type="text"
           placeholder="Tu nombre"
-          name="autor"
+          name="nameAut"
           id="authorId"
           maxLength="30"
           required

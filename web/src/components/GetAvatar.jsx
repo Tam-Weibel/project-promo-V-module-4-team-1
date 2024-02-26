@@ -10,7 +10,6 @@ function GetAvatar({ setFormData, text, name, formData, setImageSize, setMissing
   const uploadImage = (ev) => {
     setMissingImage('hidden');
     console.log('El fichero elegido es', ev.currentTarget.files[0]);
-    console.log('el length es', ev.currentTarget.files.length);
     if (ev.currentTarget.files.length > 0) {
       const myFile = ev.currentTarget.files[0];
       if (myFile.size > 50 * 1024) {
