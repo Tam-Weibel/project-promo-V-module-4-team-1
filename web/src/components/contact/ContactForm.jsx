@@ -7,7 +7,7 @@ function ContactForm() {
       <form
         action="https://formspree.io/f/xrgwndbn"
         method="POST"
-        className="form"
+        className="contactForm"
       >
         <div className="herocontact">
           <h1 className="herocontact__title">PROYECTOS MOLONES</h1>
