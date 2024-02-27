@@ -82,7 +82,7 @@ server.get('/detail/:id', async(req,res)=> {
 });
 
 
-const staticServer = "./web/dist";
+const staticServer = "./src/public-react";
 server.use(express.static(staticServer));
 const staticServerCss = "./src/public-css";
 server.use(express.static(staticServerCss));
