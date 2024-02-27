@@ -45,7 +45,7 @@ function Form({
           name="slogan"
           id="sloganId"
           placeholder="Slogan del proyecto"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <input
@@ -78,7 +78,7 @@ function Form({
           placeholder="React JS - HTML - CSS..."
           name="technologies"
           id="techId"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <textarea
