@@ -5,7 +5,7 @@ const mysql = require('mysql2/promise');
 const server = express();
 require('dotenv').config();
 server.use(cors())
-const port = 5001;
+const port = process.env.PORT || 5001;
 
 server.use(express.json({limit: '25mb'}))
 server.set("view engine", "ejs");
