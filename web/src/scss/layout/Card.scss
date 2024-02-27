@@ -1,12 +1,12 @@
 @import '../core/Variables.scss';
 
 .cardtwo {
-  height: 220px;
+  max-width: 450px;
+  height: fit-content;
   display: flex;
   flex-direction: row-reverse;
   gap: 10px;
   padding: 20px;
-  margin: 0 auto;
   background-color: $violettwo;
   color: $greytext;
   border-radius: 20px;
@@ -45,10 +45,7 @@
   &__desc {
     color: $greyishBrown88;
     font-family: $card;
-    // font-size: 8px;
     line-height: 14.1px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
     margin-top: 5px;
     font-size: calc(1vw + 1vh);
   }
