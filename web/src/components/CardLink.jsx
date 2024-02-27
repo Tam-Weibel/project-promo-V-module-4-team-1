@@ -1,7 +1,7 @@
 import '../scss/layout/CardLink.scss';
 import PropTypes from 'prop-types';
 
-function Card({cardLink, hideCardLink}) {
+function CardLink({cardLink, hideCardLink}) {
   let showLoader = cardLink === '' ? '' : 'hidden';
   let showMessage = cardLink !== '' ? '' : 'hidden';
   return (
@@ -20,8 +20,8 @@ function Card({cardLink, hideCardLink}) {
   );
 }
 
-Card.propTypes = {
+CardLink.propTypes = {
   cardLink : PropTypes.string,
   hideCardLink: PropTypes.string.isRequired,
 };
-export default Card;
+export default CardLink;
