@@ -5,7 +5,7 @@ const mysql = require('mysql2/promise');
 const server = express();
 require('dotenv').config();
 server.use(cors())
-const port = 5001;
+const port = process.env.PORT || 5001;
 
 server.use(express.json({limit: '25mb'}))
 server.set("view engine", "ejs");
@@ -34,7 +34,8 @@ server.get('/getteam', async (req, res) => {
 })
 server.get('/getprojects', async (req, res) => {
     const conex = await getDB();
-    const sql = 'SELECT * FROM project, author where author.id = project.author_id';
+    const sql = `SELECT project.id as idProject, author.id as idAuthor, namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, nameAut, job, photo
+    FROM project, author where author.id = project.author_id`;
     const [results, fields] = await conex.query(sql);
 
     conex.end();
@@ -70,7 +71,8 @@ server.post('/addProject', async (req, res) => {
 
 server.get('/detail/:id', async(req,res)=> {
     const { id } = req.params;
-    const selectProjectId = 'SELECT * FROM project, author where author.id = project.author_id and project.id = ?';
+    const selectProjectId = `SELECT project.id as idProject, author.id as idAuthor, namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, nameAut, job, photo
+    FROM project, author where author.id = project.author_id and project.id = ?`;
     const conex = await getDB();
     const [resultProject] = await conex.query(selectProjectId, [id]);
 
@@ -86,3 +88,5 @@ const staticServerCss = "./src/public-css";
 server.use(express.static(staticServerCss));
 const staticServerImages = "./src/public-image";
 server.use(express.static(staticServerImages));
+const staticServerJs = "./src/public-js";
+server.use(express.static(staticServerJs));

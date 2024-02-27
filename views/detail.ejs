@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../src/public-image/cookieSvg.svg" />
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,33 +21,53 @@
     <header class="header">
       <nav class="nav">
         <a href="http://localhost:5173/#/" class="link">
-        <i class="fa-solid fa-house nav__title"></i>
+          <i class="fa-solid fa-house nav__title"></i>
         </a>
-        <img src="/cookie.png" alt="logo" class="nav__logo"/>
+        <div onClick={toggleMenu} class="navBtn">
+          <i class="fa-solid fa-bars navBtn_bars"></i>
+        </div>
+        <ul class={`hamburger ${menu ? 'isActive' : ''}`}>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/cardProject" class="link" onClick={toggleMenu}>
+              <h3>Crea tu tarjeta</h3>
+            </a>
+          </li>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/listProject" class="link" onClick={toggleMenu}>
+              <h3>Mira tus tarjetas</h3>
+            </a>
+          </li>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/contact" class="link" onClick={toggleMenu}>
+              <h3>Conócenos</h3>
+            </a>
+          </li>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/contactform" class="link" onClick={toggleMenu}>
+              <h3>Contacta</h3>
+            </a>
+          </li>
+        </ul>
       </nav>
     </header>
     <main class="main">
-      <section class="previewtwo">
-        <img class="previewtwo__image" src="<%= project.image %>" alt="" />
-        <div class="previewtwo__card">
-          <article class="cardtwo">
-            <div class="texttwo">
-              <p class="texttwo__subtitle">Personal Project Card</p>
-
-              <h2 class="texttwo__title"><%= project.namePj %></h2>
-              <p class="texttwo__slogan"><%= project.slogan %></p>
-              <p class="texttwo__desc"><%= project.descriptionPj %></p>
-              <section class="texttwo__technologies">
-                <p class="texttwo__technologies--p">
-                  <%= project.technologies %>
-                </p>
+      <section class="detail">
+        <img class="projectImage" src="<%= project.image %>" alt="" />
+        <div class="projectCard">
+          <article class="card">
+            <div class="text">
+              <h2 class="text__title"><%= project.namePj %></h2>
+              <p class="text__slogan"><%= project.slogan %></p>
+              <p class="text__desc"><%= project.descriptionPj %></p>
+              <section>
+                <p class="text__technologies"><%= project.technologies %></p>
               </section>
-              <section class="texttwo__icons">
+              <section class="text__icons">
                 <a
                   href="<%= project.gitUrl %>"
                   target="_blank"
                   rel="noreferrer"
-                  class="texttwo__icons--link"
+                  class="text__icons--link"
                 >
                   <i class="fa-brands fa-github text__iconsColor"></i>
                 </a>
@@ -55,7 +75,7 @@
                   href="<%= project.demoUrl %>"
                   target="_blank"
                   rel="noreferrer"
-                  class="texttwo__icons--link"
+                  class="text__icons--link"
                 >
                   <i class="fa-solid fa-globe"></i>
                 </a>

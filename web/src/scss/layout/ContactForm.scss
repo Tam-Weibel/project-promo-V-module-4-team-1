@@ -1,0 +1,68 @@
+@import "../core/Variables.scss";
+@import "../layout/Btn.scss";
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 10%;
+  gap: 10px;
+}
+
+.herocontact {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 15px;
+  gap: 5px;
+
+  &__title {
+    font-family: $form;
+    color: $white;
+  }
+
+  &__text {
+    font-family: $card;
+    color: $white;
+    font-style: italic;
+  }
+}
+// .labelForm {
+
+// }
+
+.inputForm {
+  background-color: $violettwo;
+  border: solid 2px $violetborder;
+  border-radius: 40px;
+  height: 42.72px;
+  color: $greyishBrown;
+  padding-left: 15px;
+  width: 100%;
+  &::placeholder {
+    color: $white;
+    font-size: 14px;
+  }
+}
+
+.textArea {
+  background-color: $violettwo;
+  border: solid 2px $violetborder;
+  border-radius: 20px;
+  color: $greyishBrown;
+  padding-top: 10px;
+  padding-left: 15px;
+  height: 110px;
+  width: 100%;
+  &::placeholder {
+    color: $white;
+    font-size: 14px;
+  }
+}
+
+.btnForm {
+  align-self: center;
+}
