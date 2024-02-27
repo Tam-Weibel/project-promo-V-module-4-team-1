@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState} from 'react';
 // import logocookie from '../images/cookie.png';
 import '../scss/core/Variables.scss';
 import '../scss/layout/Header.scss';
@@ -10,6 +10,8 @@ function Header() {
   const toggleMenu = () => {
     setMenu(!menu);
   };
+ 
+
 
   return (
     <header className="header">
