@@ -34,7 +34,7 @@ function Form({
           placeholder="Nombre del proyecto"
           name="namePj"
           id="nameId"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <input
@@ -45,7 +45,7 @@ function Form({
           name="slogan"
           id="sloganId"
           placeholder="Slogan del proyecto"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <input
