@@ -23,7 +23,31 @@
         <a href="http://localhost:5173/#/" class="link">
           <i class="fa-solid fa-house nav__title"></i>
         </a>
-        <img src="/cookie.png" alt="logo" class="nav__logo" />
+        <div onClick={toggleMenu} class="navBtn">
+          <i class="fa-solid fa-bars navBtn_bars"></i>
+        </div>
+        <ul class={`hamburger ${menu ? 'isActive' : ''}`}>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/cardProject" class="link" onClick={toggleMenu}>
+              <h3>Crea tu tarjeta</h3>
+            </a>
+          </li>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/listProject" class="link" onClick={toggleMenu}>
+              <h3>Mira tus tarjetas</h3>
+            </a>
+          </li>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/contact" class="link" onClick={toggleMenu}>
+              <h3>Conócenos</h3>
+            </a>
+          </li>
+          <li class="hamburger__li">
+            <a href="http://localhost:5173/#/contactform" class="link" onClick={toggleMenu}>
+              <h3>Contacta</h3>
+            </a>
+          </li>
+        </ul>
       </nav>
     </header>
     <main class="main">
