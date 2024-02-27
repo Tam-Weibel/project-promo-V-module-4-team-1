@@ -151,7 +151,7 @@ function Form({
         <p className={`alert ${missingImage}`}>
           * Debe subir ambas fotos.
         </p>
-        <button className="btn" onClick={handleClearForm}>
+        <button className="btn cleanBtn" onClick={handleClearForm}>
           Limpiar Formulario
         </button>
       </fieldset>
