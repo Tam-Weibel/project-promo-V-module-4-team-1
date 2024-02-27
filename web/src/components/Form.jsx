@@ -89,7 +89,7 @@ function Form({
           placeholder="Breve descripción del proyecto..."
           name="descriptionPj"
           id="descId"
-          maxLength="150"
+          maxLength="300"
           required
         ></textarea>
       </fieldset>
