@@ -108,7 +108,7 @@ function Form({
           placeholder="Tu nombre"
           name="nameAut"
           id="authorId"
-          maxLength="30"
+          maxLength="45"
           required
         />
         <input
@@ -119,7 +119,7 @@ function Form({
           placeholder="Tu puesto"
           name="job"
           id="jobId"
-          maxLength="30"
+          maxLength="45"
           required
         />
         <section className="boxBtns">
