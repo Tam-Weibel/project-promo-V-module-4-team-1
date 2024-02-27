@@ -172,7 +172,6 @@ function App() {
           path='/listProject'
           element={<ListProject projectList={projectList} />}
         />
-        
       </Routes>
       <Footer />
     </>

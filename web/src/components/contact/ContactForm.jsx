@@ -7,7 +7,7 @@ function ContactForm() {
       <form
         action="https://formspree.io/f/xrgwndbn"
         method="POST"
-        className="form"
+        className="contactForm"
       >
         <div className="herocontact">
           <h1 className="herocontact__title">PROYECTOS MOLONES</h1>
@@ -21,7 +21,7 @@ function ContactForm() {
           className="inputForm"
           type="text"
           id="name"
-          placeholder="Nombre..."
+          placeholder="Nombre Apellidos"
           required
         />
 
@@ -36,8 +36,8 @@ function ContactForm() {
           required
         />
 
-        <label htmlFor="number"  className="labelForm">Teléfono</label>
-        <input className="inputForm" type="tel" id="number" placeholder="Ej:123456789" />
+        <label htmlFor="number"  className="labelForm">Teléfono (opcional)</label>
+        <input className="inputForm" type="tel" id="number" placeholder="Ej: 123456789" />
 
         <label htmlFor="message"  className="labelForm">
           Mensaje 

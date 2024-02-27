@@ -18,28 +18,28 @@ function Main({
   setImageSize,
   imageSize,
   missingImage,
-  setMissingImage
+  setMissingImage,
 }) {
   return (
-    <main className="main">
+    <main className='main'>
       <Hero />
       <ButtonSeeProjects />
-     <div className='main__container'>
-     <Preview formData={formData} />
-      <Form
-        handleInput={handleInput}
-        formData={formData}
-        setFormData={setFormData}
-        handleClickCreateCard={handleClickCreateCard}
-        hideCardLink={hideCardLink}
-        cardLink={cardLink}
-        handleClearForm={handleClearForm}
-        setImageSize={setImageSize}
-        imageSize={imageSize}
-        missingImage={missingImage}
-        setMissingImage={setMissingImage}
-      />
-     </div>
+      <div className='main__container'>
+        <Preview formData={formData} />
+        <Form
+          handleInput={handleInput}
+          formData={formData}
+          setFormData={setFormData}
+          handleClickCreateCard={handleClickCreateCard}
+          hideCardLink={hideCardLink}
+          cardLink={cardLink}
+          handleClearForm={handleClearForm}
+          setImageSize={setImageSize}
+          imageSize={imageSize}
+          missingImage={missingImage}
+          setMissingImage={setMissingImage}
+        />
+      </div>
     </main>
   );
 }
@@ -54,7 +54,7 @@ Main.propTypes = {
   setImageSize: PropTypes.func.isRequired,
   imageSize: PropTypes.string.isRequired,
   missingImage: PropTypes.string.isRequired,
-  setMissingImage: PropTypes.func.isRequired
+  setMissingImage: PropTypes.func.isRequired,
 };
 
 export default Main;
