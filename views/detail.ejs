@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../src/public-image/cookieSvg.svg" />
+    <link rel="icon" href="/cookieSvg.svg" />
     <link rel="stylesheet" href="/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,8 +23,32 @@
         <a href="http://localhost:5173/#/" class="link">
           <i class="fa-solid fa-house nav__title"></i>
         </a>
-        <img src="/cookie.png" alt="logo" class="nav__logo" />
+        <div class="navBtn" id="navBtn">
+          <i class="fa-solid fa-bars navBtn_bars"></i>
+        </div>
       </nav>
+      <ul class="hamburger" id="hamburger">
+        <li class="hamburger__li">
+          <a href="http://localhost:5173/#/cardProject" class="link">
+            <h3>Crea tu tarjeta</h3>
+          </a>
+        </li>
+        <li class="hamburger__li">
+          <a href="http://localhost:5173/#/listProject" class="link">
+            <h3>Mira tus tarjetas</h3>
+          </a>
+        </li>
+        <li class="hamburger__li">
+          <a href="http://localhost:5173/#/contact" class="link">
+            <h3>Conócenos</h3>
+          </a>
+        </li>
+        <li class="hamburger__li">
+          <a href="http://localhost:5173/#/contactform" class="link">
+            <h3>Contacta</h3>
+          </a>
+        </li>
+      </ul>
     </header>
     <main class="main">
       <section class="detail">
@@ -71,5 +95,12 @@
       <p class="footer__copy">©Cookie Team 2024</p>
       <img class="footer__logo" src="/cookie.png" alt="logo Adalab" />
     </footer>
+    <script>
+      const navBtn = document.getElementById('navBtn');
+      const hamburger = document.getElementById('hamburger');
+      navBtn.addEventListener('click', function () {
+        hamburger.classList.toggle('isActive');
+      });
+    </script>
   </body>
 </html>
