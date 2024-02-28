@@ -29,22 +29,18 @@ function LandingPage() {
               <p className='texttwo__technologies--p'>React JS - HTML - CSS</p>
             </section>
             <section className='texttwo__icons'>
-              <a
-                href='#'
-                target='_blank'
-                rel='noreferrer'
+              <div
+              
                 className='texttwo__icons--link'
               >
                 <i className='fa-brands fa-github text__iconsColor'></i>
-              </a>
-              <a
-                href='#'
-                target='_blank'
-                rel='noreferrer'
+              </div>
+              <div
+                
                 className='texttwo__icons--link'
               >
                 <i className='fa-solid fa-globe'></i>
-              </a>
+              </div>
             </section>
           </div>
 
