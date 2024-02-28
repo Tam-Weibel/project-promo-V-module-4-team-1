@@ -1,5 +1,5 @@
 const callToApi = (formData) => {
-    return fetch ("http://localhost:5001/addProject", {
+    return fetch ("https://project-promo-v-module-4-team-1.onrender/addProject", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {"Content-type": "application/json"},
@@ -28,7 +28,7 @@ const callToApi = (formData) => {
 };
 
 const getProjects = () => {
-    return fetch ("http://localhost:5001/getprojects")
+    return fetch ("https://project-promo-v-module-4-team-1.onrender/getprojects")
     .then((response) => response.json())
     .then((responseData) => {
         return (responseData);
@@ -39,7 +39,7 @@ const getProjects = () => {
 };
 
 const getTeam = () => {
-    return fetch ("http://localhost:5001/getteam")
+    return fetch ("https://project-promo-v-module-4-team-1.onrender/getteam")
     .then((response) => response.json())
     .then((responseData) => {
         return (responseData);
