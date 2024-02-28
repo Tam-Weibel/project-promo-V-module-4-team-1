@@ -11,3 +11,6 @@
 .btn:hover{
     transform: scale(1.1);
 }
+.btn:focus {
+    color: $white;
+  }
