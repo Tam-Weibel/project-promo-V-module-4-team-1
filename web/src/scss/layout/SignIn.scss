@@ -1,0 +1,44 @@
+@import "../core/Variables.scss";
+
+.signInTitle{
+    font-family: $form;
+    color: $white;
+}
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 10px;
+    max-width: 768px;
+  }
+  
+  .labelSignIn {
+    font-family: $form;
+    color: $white;
+    padding-top: 10px;
+  }
+  
+  .inputSignIn {
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
+    border-radius: 40px;
+    height: 42.72px;
+    color: $greyishBrown;
+    padding-left: 15px;
+    width: 100%;
+    &::placeholder {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+  
+
+  
+  .btnSignIn {
+    align-self: center;
+  }
+  

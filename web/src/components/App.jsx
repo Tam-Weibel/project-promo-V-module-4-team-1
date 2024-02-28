@@ -18,6 +18,8 @@ import ListProject from './listProject/ListProject.jsx';
 import Footer from './Footer.jsx';
 import Contact from './contact/Contact.jsx';
 import ContactForm from './contact/ContactForm.jsx';
+import Register from './register/Register.jsx';
+import LogIn from './logIn/LogIn.jsx';
 
 function App() {
   //Dónde lo usamos?
@@ -25,17 +27,16 @@ function App() {
 
   //Variables estado
   const [formData, setFormData] = useState({
-
-    namePj: "",
-    slogan: "",
-    technologies: "",
-    demoUrl: "",
-    gitUrl: "",
-    descriptionPj: "",
-    nameAut: "",
-    job: "",
-    image: "",
-    photo: "",
+    namePj: '',
+    slogan: '',
+    technologies: '',
+    demoUrl: '',
+    gitUrl: '',
+    descriptionPj: '',
+    nameAut: '',
+    job: '',
+    image: '',
+    photo: '',
   });
 
   const [projectList, setProjectList] = useState([]);
@@ -45,22 +46,21 @@ function App() {
   const [missingImage, setMissingImage] = useState('hidden');
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState(
-
-    localStorage.get("user") || {
-      namePj: "",
-      slogan: "",
-      technologies: "",
-      demoUrl: "",
-      gitUrl: "",
-      descriptionPj: "",
-      nameAut: "",
-      job: "",
-      image: "",
-      photo: "",
+    localStorage.get('user') || {
+      namePj: '',
+      slogan: '',
+      technologies: '',
+      demoUrl: '',
+      gitUrl: '',
+      descriptionPj: '',
+      nameAut: '',
+      job: '',
+      image: '',
+      photo: '',
     }
   );
   const [team, setTeam] = useState([]);
-  
+
   useEffect(() => {
     object.getTeam().then((responseData) => {
       setTeam(responseData.data);
@@ -89,8 +89,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-
-    localStorage.set("user", {
+    localStorage.set('user', {
       namePj: formData.namePj,
       slogan: formData.slogan,
       technologies: formData.technologies,
@@ -126,16 +125,16 @@ function App() {
     ev.preventDefault();
     localStorage.remove('user');
     setFormData({
-      namePj: "",
-      slogan: "",
-      technologies: "",
-      demoUrl: "",
-      gitUrl: "",
-      descriptionPj: "",
-      nameAut: "",
-      job: "",
-      image: "",
-      photo: "",
+      namePj: '',
+      slogan: '',
+      technologies: '',
+      demoUrl: '',
+      gitUrl: '',
+      descriptionPj: '',
+      nameAut: '',
+      job: '',
+      image: '',
+      photo: '',
     });
     setHideCardLink('hidden');
     setCardLink('');
@@ -147,11 +146,13 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path='/contact' element={<Contact team={team}/>} />
-        <Route path='/contactform' element={<ContactForm />} />
-        <Route path='/' element={<LandingPage formData={formData} />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/contact" element={<Contact team={team} />} />
+        <Route path="/contactform" element={<ContactForm />} />
+        <Route path="/" element={<LandingPage formData={formData} />} />
         <Route
-          path='/cardProject'
+          path="/cardProject"
           element={
             <CardProject
               hideCardLink={hideCardLink}
@@ -169,7 +170,7 @@ function App() {
           }
         />
         <Route
-          path='/listProject'
+          path="/listProject"
           element={<ListProject projectList={projectList} />}
         />
       </Routes>

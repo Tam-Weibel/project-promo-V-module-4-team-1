@@ -51,8 +51,9 @@ function ContactForm() {
           rows="10"
           placeholder="¿Qué necesitas?"
         ></textarea>
+        <input className="btn btnForm" type="submit" value="Enviar"></input>
       </form>
-      <input className="btn btnForm" type="submit" value="Enviar"></input>
+      
     </main>
   );
 }
