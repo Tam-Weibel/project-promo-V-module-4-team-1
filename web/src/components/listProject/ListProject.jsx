@@ -9,7 +9,7 @@ function ListProject({ projectList }) {
     return (
       <li key={index} className='listProject__li'>
         <a
-          href={`http://localhost:5001/detail/${project.idProject}`}
+          href={`https://project-promo-v-module-4-team-1.onrender.com/detail/${project.idProject}`}
           target='_blank'
         >
           {<PreviewListProject project={project} />}

@@ -65,7 +65,7 @@ server.post('/addProject', async (req, res) => {
     conex.end();
     res.json({
         success: true,
-        cardURL: `http://localhost:5001/detail/${resultProject.insertId}`
+        cardURL: `https://project-promo-v-module-4-team-1.onrender.com/detail/${resultProject.insertId}`
     });
 });
 
