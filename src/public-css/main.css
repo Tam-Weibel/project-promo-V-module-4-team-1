@@ -244,6 +244,20 @@
     font-size: 16px;
   }
 }
+.div{
+  height: 100px;
+  background-color: green;
+}
+.linkedin {
+  padding: 5px;
+  border-radius: 5px;
+  background: #0077B5;
+  color: white;
+}
+.linkedin:hover{
+  color: #dafe99;
+  transform: scale(1.1);
+}
 
 /* Footer */
 .footer {

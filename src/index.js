@@ -81,7 +81,7 @@ server.get('/detail/:id', async (req, res) => {
 
   conex.end();
 
-  res.render('detail', { project: resultProject[0] });
+  res.render('detail', { project: resultProject[0], cardURL: `https://project-promo-v-module-4-team-1.onrender.com/detail/${id}`});
 });
 
 
