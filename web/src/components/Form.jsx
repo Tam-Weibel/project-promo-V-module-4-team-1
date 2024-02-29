@@ -78,7 +78,7 @@ function Form({
           placeholder="React JS - HTML - CSS..."
           name="technologies"
           id="techId"
-          maxLength="30"
+          maxLength="100"
           required
         />
         <textarea
@@ -89,7 +89,7 @@ function Form({
           placeholder="Breve descripción del proyecto..."
           name="descriptionPj"
           id="descId"
-          maxLength="150"
+          maxLength="255"
           required
         ></textarea>
       </fieldset>
@@ -108,7 +108,7 @@ function Form({
           placeholder="Tu nombre"
           name="nameAut"
           id="authorId"
-          maxLength="30"
+          maxLength="45"
           required
         />
         <input
@@ -119,7 +119,7 @@ function Form({
           placeholder="Tu puesto"
           name="job"
           id="jobId"
-          maxLength="30"
+          maxLength="45"
           required
         />
         <section className="boxBtns">

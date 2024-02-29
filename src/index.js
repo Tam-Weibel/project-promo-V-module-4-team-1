@@ -88,3 +88,5 @@ const staticServerCss = "./src/public-css";
 server.use(express.static(staticServerCss));
 const staticServerImages = "./src/public-image";
 server.use(express.static(staticServerImages));
+const staticServerJs = "./src/public-js";
+server.use(express.static(staticServerJs));

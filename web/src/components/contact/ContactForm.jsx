@@ -1,18 +1,19 @@
 import "../../scss/layout/ContactForm.scss";
 import "../../scss/layout/Main.scss";
+import "../../scss/layout/Btn.scss";
 
 function ContactForm() {
   return (
     <main className="main">
+        <div className="herocontact">
+          <h1 className="herocontact__title">PROYECTOS MOLONES</h1>
+          <p className="herocontact__text">Contacta con nosotras</p>
+        </div>
       <form
         action="https://formspree.io/f/xrgwndbn"
         method="POST"
         className="contactForm"
       >
-        <div className="herocontact">
-          <h1 className="herocontact__title">PROYECTOS MOLONES</h1>
-          <p className="herocontact__text">Contacta con nosotras</p>
-        </div>
 
         <label htmlFor="name" className="labelForm">
           Nombre completo 
@@ -50,9 +51,8 @@ function ContactForm() {
           rows="10"
           placeholder="¿Qué necesitas?"
         ></textarea>
-
-        <input className="btn btnForm" type="submit" value="Enviar"></input>
       </form>
+      <input className="btn btnForm" type="submit" value="Enviar"></input>
     </main>
   );
 }
