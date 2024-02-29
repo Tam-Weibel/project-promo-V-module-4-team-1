@@ -54,23 +54,22 @@ server.post('/addProject', async (req, res) => {
   ]);
   const lastInsertAuthor = resultAuthor.insertId;
 
-  const insertProject =
-    'INSERT INTO project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, author_id) values (?,?,?,?,?,?,?,?)';
-  const [resultProject] = await conex.query(insertProject, [
-    req.body.namePj,
-    req.body.descriptionPj,
-    req.body.technologies,
-    req.body.image,
-    req.body.gitUrl,
-    req.body.demoUrl,
-    req.body.slogan,
-    lastInsertAuthor,
-  ]);
-  conex.end();
-  res.json({
-    success: true,
-    cardURL: `http://localhost:5001/detail/${resultProject.insertId}`,
-  });
+    const insertProject = 'INSERT INTO project (namePj, descriptionPj, technologies, image, gitUrl, demoUrl, slogan, author_id) values (?,?,?,?,?,?,?,?)';
+    const [resultProject] = await conex.query(insertProject, [
+        req.body.namePj,
+        req.body.descriptionPj,
+        req.body.technologies,
+        req.body.image,
+        req.body.gitUrl,
+        req.body.demoUrl,
+        req.body.slogan,
+        lastInsertAuthor
+    ]);
+    conex.end();
+    res.json({
+        success: true,
+        cardURL: `https://project-promo-v-module-4-team-1.onrender.com/detail/${resultProject.insertId}`
+    });
 });
 
 server.get('/detail/:id', async (req, res) => {
@@ -85,7 +84,8 @@ server.get('/detail/:id', async (req, res) => {
   res.render('detail', { project: resultProject[0] });
 });
 
-const staticServer = './web/dist';
+
+const staticServer = "./src/public-react";
 server.use(express.static(staticServer));
 const staticServerCss = './src/public-css';
 server.use(express.static(staticServerCss));
