@@ -82,7 +82,7 @@ server.get('/detail/:id', async (req, res) => {
 
   conex.end();
 
-  res.render('detail', { project: resultProject[0] });
+  res.render('detail', { project: resultProject[0], cardURL: `http://localhost:5001/detail/${id}` });
 });
 
 const staticServer = './web/dist';
