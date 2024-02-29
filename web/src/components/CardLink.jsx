@@ -20,19 +20,15 @@ function CardLink({ cardLink, hideCardLink }) {
       >
         <strong className='cardLink__url'>{cardLink}</strong>
       </a>
-      {/* <a
-        target='_blank'
-        className='c-black'
-        rel='noreferrer'
-        href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
-      >
-        Share on LinkedIn
-      </a>
+
       <a
+        className={`linkedin ${showMessage}`}
         target='_blank'
         title='Share on LinkedIn'
         href={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
-      >Second share option</a> */}
+      >
+        Compartir en Linked<i class='fa fa-linkedin'></i>
+      </a>
     </section>
   );
 }
