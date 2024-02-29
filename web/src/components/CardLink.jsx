@@ -27,7 +27,7 @@ function CardLink({ cardLink, hideCardLink }) {
         title='Share on LinkedIn'
         href={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
       >
-        Compartir en Linked<i class='fa fa-linkedin'></i>
+        Compartir en Linked<i className='fa fa-linkedin'></i>
       </a>
     </section>
   );
