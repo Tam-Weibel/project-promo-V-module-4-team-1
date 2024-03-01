@@ -52,6 +52,9 @@ function Header() {
             <h3>Contacta</h3>
           </Link>
         </li>
+        <li className="hamburger__li link">
+        <i className="fa-solid fa-arrow-right-from-bracket"></i>
+        </li>
       </ul>
     </header>
   );
