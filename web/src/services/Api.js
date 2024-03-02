@@ -49,6 +49,77 @@ const getTeam = () => {
     });
 };
 
-const object = {callToApi: callToApi, getProjects: getProjects, getTeam: getTeam} 
+//SignIn y LogIn
+
+
+
+const callToApiSign = (signInData) => {
+    return fetch ("http://localhost:5001/register", {
+        method: "POST",
+        body: JSON.stringify(signInData),
+        headers: {"Content-type": "application/json"},
+    })
+    .then((response) => response.json())
+    .then((response) => {
+        return (response);
+    
+    })
+    .catch((error)=> {
+        console.error("Error calling API:", error);
+  
+    });
+};
+
+const callToApiLog = (logData) => {
+    return fetch ("http://localhost:5001/login", {
+        method: "POST",
+        body: JSON.stringify(logData),
+        headers: {"Content-type": "application/json"},
+    })
+    .then((response) => response.json())
+    .then((response) => {
+        console.log(response.token);
+        console.log(response.success);
+        return (
+            {success: response.success, 
+            token: response.token});        
+    })
+    .catch((error)=> {
+        console.error("Error calling API:", error);  
+    });
+};
+
+const getProfile = (api_token) => {
+    return fetch ("http://localhost:5001/profile", 
+    {
+     method: 'GET',
+     headers: {
+         'Content-Type': 'application/json',
+         'Authorization': api_token
+     }})
+     .then(response => response.json())
+     .then(response => {
+        console.log('Server response:', response); 
+       return response.profile.username;   
+     })
+ }
+
+const logOut = () => {
+    return fetch ("http://localhost:5001/logout",
+    {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': ''
+        }})
+        .then(response => response.json())
+        .then(response => {
+           console.log('Server response:', response); 
+           
+          return false ; 
+    })
+}
+
+const object = {callToApi: callToApi, getProjects: getProjects, getTeam: getTeam, callToApiSign: callToApiSign, callToApiLog: callToApiLog, getProfile: getProfile, logOut:logOut} 
 
 export default object;

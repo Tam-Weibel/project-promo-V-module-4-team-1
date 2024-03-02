@@ -88,3 +88,13 @@
 .hidden {
   display: none;
 }
+
+.btnDelete{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  &__trash{
+    padding-left: 15px;
+  }
+}
