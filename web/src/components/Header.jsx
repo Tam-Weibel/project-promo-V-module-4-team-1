@@ -7,15 +7,13 @@ import '../scss/core/Variables.scss';
 import '../scss/layout/Header.scss';
 import '../scss/layout/Link.scss';
 
-function Header({loggedIn, userName}) {
+function Header({loggedIn, userName, handleLogOut, toggleMenu, menu}) {
  
   let loggedInMenu = loggedIn === true ? 'hidden' : '';
   let notLoggedIn = loggedIn === false ? 'hidden' : '';
 
-  const [menu, setMenu] = useState(false);
-  const toggleMenu = () => {
-    setMenu(!menu);
-  };
+ 
+  
 
   return (
     <header className="header">
@@ -23,11 +21,14 @@ function Header({loggedIn, userName}) {
         <Link to="/" className="link">
           <i className="fa-solid fa-house nav__title"></i>
         </Link>
-        <div onClick={toggleMenu} className="navBtn">
-          <i className="fa-solid fa-bars navBtn_bars"></i>
+        <div className='nav__menu'>
+          <p className={`welcome ${notLoggedIn}`}>{`Bienvenida, ${userName}`}</p>
+          <nav onClick={toggleMenu} className="navBtn">
+            <i className="fa-solid fa-bars navBtn_bars"></i>
+          </nav>
         </div>
       </nav>
-      <p className={notLoggedIn}>{`Bienvenida ${userName}`}</p>
+      
       <ul className={`hamburger ${menu ? 'isActive' : ''}`}>
         <li className={`hamburger__li ${loggedInMenu}`}>
           <Link to="/register" className="link" onClick={toggleMenu}>
@@ -60,7 +61,7 @@ function Header({loggedIn, userName}) {
             <h3>Contacta</h3>
           </Link>
         </li>
-        <li className={`hamburger__li ${notLoggedIn}`}>
+        <li className={`hamburger__li link ${notLoggedIn}`} onClick={handleLogOut}>
         <i className="fa-solid fa-arrow-right-from-bracket"></i>
         </li>
       </ul>
@@ -70,6 +71,9 @@ function Header({loggedIn, userName}) {
 Header.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   userName: PropTypes.string,
+  handleLogOut: PropTypes.func.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+  menu: PropTypes.bool.isRequired
 };
 
 export default Header;

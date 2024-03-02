@@ -8,7 +8,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  
+  // justify-content: center;
 }
 
 .nav {
@@ -25,6 +25,17 @@
     height: 30px;
     width: 30px;
   }
+ &__menu{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+  align-items: center;
+ }
+}
+.welcome{
+  text-transform: capitalize;
+  color: $white;
+  font-family: $form;
 }
 .navBtn{
   color: $white;

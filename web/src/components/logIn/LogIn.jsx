@@ -1,12 +1,12 @@
-
 import PropTypes from 'prop-types';
+
+
 import '../../scss/layout/Main.scss';
 import '../../scss/layout/Btn.scss';
 import '../../scss/layout/LogIn.scss';
 
-
-function LogIn({handleLogData, handleSubmitLog}) {
-
+function LogIn({ handleLogData, handleSubmitLog }) {
+  
 
   return (
     <main className="main">
@@ -22,7 +22,7 @@ function LogIn({handleLogData, handleSubmitLog}) {
           type="email"
           id="email"
           placeholder="nombre.apellidos@mail.com"
-          name='email'
+          name="email"
           required
         />
 
@@ -34,16 +34,22 @@ function LogIn({handleLogData, handleSubmitLog}) {
           className="inputLogIn"
           type="password"
           id="password"
-          name='userpassword'
+          name="userpassword"
         />
-        <input className="btn btnLogIn" type="submit" value="Enviar"></input>
+        
+          <input
+            className="btn btnLogIn"
+            type="submit"
+            value="Enviar"
+          ></input>
+        
       </form>
-      
     </main>
   );
 }
 LogIn.propTypes = {
-  handleLogData : PropTypes.func.isRequired,
-  handleSubmitLog : PropTypes.func.isRequired
-}
+  handleLogData: PropTypes.func.isRequired,
+  handleSubmitLog: PropTypes.func.isRequired,
+
+};
 export default LogIn;

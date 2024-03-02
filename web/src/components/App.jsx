@@ -5,7 +5,7 @@ import object from '../services/Api.js';
 import localStorage from '../services/LocalStorage.js';
 //react
 import { useEffect, useState } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 //Componentes
 import Header from './Header.jsx';
 import LandingPage from './landingPage/LandingPage.jsx';
@@ -16,11 +16,9 @@ import Contact from './contact/Contact.jsx';
 import ContactForm from './contact/ContactForm.jsx';
 import Register from './register/Register.jsx';
 import LogIn from './logIn/LogIn.jsx';
+// import { response } from 'express';
 
 function App() {
-  //Dónde lo usamos?
-  const location = useLocation();
-
   //Variables estado
   const [formData, setFormData] = useState({
     namePj: '',
@@ -63,6 +61,15 @@ function App() {
     userpassword: '',
   });
 
+  const [menu, setMenu] = useState(false);
+  const toggleMenu = () => {
+    setMenu(!menu);
+  };
+
+  const [localToken, setLocalToken] = useState('');
+
+  const navigate = useNavigate();
+
   const handleLogData = (ev) => {
     const inputValue = ev.target.value;
     const inputName = ev.target.name;
@@ -72,20 +79,43 @@ function App() {
     });
   };
 
-
   const handleSubmitLog = (ev) => {
     ev.preventDefault();
-    object.callToApiLog(logData).then(({success, api_token}) => {
+    object.callToApiLog(logData).then(({ success, token }) => {
       setLoggedIn(success);
       if (success) {
-        object.getProfile(api_token).then((profile) => {
+        object.getProfile(token).then((profile) => {
           setUserName(profile);
+          localStorage.set('user name', profile);
         });
+        navigate('/cardProject');
+        setLocalToken(token);
+        localStorage.set('token', token);
       }
     });
   };
-  
 
+  useEffect(() => {
+    const token = localStorage.get('token');
+    if (token) {
+      object.getProfile(token).then((profile) => {
+        setUserName(profile);
+        localStorage.set('user name', profile);
+      });
+      setLoggedIn(true);
+    }
+  }, [localToken]);
+
+  const handleLogOut = (ev) => {
+    ev.preventDefault();
+    object.logOut().then((response) => {
+      setLoggedIn(response);
+    });
+    navigate('/');
+    toggleMenu();
+    localStorage.remove('token');
+    localStorage.remove('user name');
+  };
 
   useEffect(() => {
     object.getTeam().then((responseData) => {
@@ -170,12 +200,23 @@ function App() {
 
   return (
     <>
-      <Header loggedIn={loggedIn} userName={userName} />
+      <Header
+        loggedIn={loggedIn}
+        userName={userName}
+        handleLogOut={handleLogOut}
+        toggleMenu={toggleMenu}
+        menu={menu}
+      />
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route
           path="/login"
-          element={<LogIn handleLogData={handleLogData} handleSubmitLog={handleSubmitLog} />}
+          element={
+            <LogIn
+              handleLogData={handleLogData}
+              handleSubmitLog={handleSubmitLog}
+            />
+          }
         />
         <Route path="/contact" element={<Contact team={team} />} />
         <Route path="/contactform" element={<ContactForm />} />
@@ -200,7 +241,7 @@ function App() {
         />
         <Route
           path="/listProject"
-          element={<ListProject projectList={projectList} />}
+          element={<ListProject projectList={projectList} loggedIn={loggedIn} />}
         />
       </Routes>
       <Footer />
