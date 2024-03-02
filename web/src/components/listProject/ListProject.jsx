@@ -3,24 +3,24 @@ import ButtonCreateCard from '../ButtonCreateCard.jsx';
 import '../../scss/layout/Main.scss';
 import '../../scss/layout/ListProject.scss';
 import PreviewListProject from './PreviewListProject.jsx';
+import Filter from '../Filter.jsx';
 
 function ListProject({ projectList }) {
   const renderProject = projectList.map((project, index) => {
     return (
-      <li key={index} className='listProject__li'>
-        <a
-          href={`http://localhost:5001/detail/${project.idProject}`}
-          target='_blank'
-        >
+      <li key={index} className="listProject__li">
+        <a  href={`http://localhost:5001/detail/${project.idProject}`}
+          target="_blank" rel="noreferrer">            
           {<PreviewListProject project={project} />}
         </a>
       </li>
     );
   });
   return (
-    <main className='main'>
+    <main className="main">
+      <Filter />
       <ButtonCreateCard />
-      <ul className='listProject'>{renderProject}</ul>
+      <ul className="listProject">{renderProject}</ul>
     </main>
   );
 }

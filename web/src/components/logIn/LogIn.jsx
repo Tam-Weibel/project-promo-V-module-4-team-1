@@ -1,32 +1,12 @@
-import React from 'react';
+
+import PropTypes from 'prop-types';
 import '../../scss/layout/Main.scss';
 import '../../scss/layout/Btn.scss';
 import '../../scss/layout/LogIn.scss';
-import object from '../../services/Api.js';
-import { useState } from 'react';
 
-function LogIn() {
-  const [logData, setLogData] = useState({
-    email: '',
-    userpassword: '',
-  });
 
-  const handleLogData = (ev) => {
-    const inputValue = ev.target.value;
-    const inputName = ev.target.name;
-    setLogData({
-      ...logData,
-      [inputName]: inputValue,
-    });
-  };
-  const handleSubmitLog = (ev) => {
-    ev.preventDefault();
-    object.callToApiLog(logData).then((response) => {
-      setLogData(response);
-    });
-    console.log('wdewqedqwe');
-    console.log(logData);
-  };
+function LogIn({handleLogData, handleSubmitLog}) {
+
 
   return (
     <main className="main">
@@ -62,5 +42,8 @@ function LogIn() {
     </main>
   );
 }
-
+LogIn.propTypes = {
+  handleLogData : PropTypes.func.isRequired,
+  handleSubmitLog : PropTypes.func.isRequired
+}
 export default LogIn;

@@ -169,9 +169,7 @@ server.post('/register', async (req, res) => {
           id: results.insertId });
         }
       });
-
     }
-
   } catch (error) {
     return res.status(500).json({
       message: 'Internal error server at register',
@@ -207,11 +205,13 @@ try{
   };
   const token = generateToken(userForToken);
   res.status(200).json({ 
-    message: 'Log in ready',
+    success: true,
+    message: 'Log in successful',
     token: token, 
     email: user.email });
 } catch (error) {
   return res.status(500).json({
+    success: false,
     message: 'Internal error server at login',
     error: error.message,
   });
@@ -224,12 +224,11 @@ try{
   const connect = await getDB();
   const [profile] = await connect.query(sql, [req.user.email]);
   connect.end();
-  const response = {
-    profile: profile,
-  };
+  
+  console.log(profile);
   res.json(
     {message: 'Profile accesible',
-    response: response});
+    profile: profile[0]});
 } catch {
   return res.status(500).json({
     message: 'Internal error server at get to profile',

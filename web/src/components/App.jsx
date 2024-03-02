@@ -1,9 +1,5 @@
 // css
 import '../scss/App.scss';
-//img
-import cover2 from '../images/cover_2.jpeg';
-import favicon from '../images/favicon.png';
-import logoAlab from '../images/logo-adalab.png';
 //API y LS
 import object from '../services/Api.js';
 import localStorage from '../services/LocalStorage.js';
@@ -60,6 +56,36 @@ function App() {
     }
   );
   const [team, setTeam] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userName, setUserName] = useState('');
+  const [logData, setLogData] = useState({
+    email: '',
+    userpassword: '',
+  });
+
+  const handleLogData = (ev) => {
+    const inputValue = ev.target.value;
+    const inputName = ev.target.name;
+    setLogData({
+      ...logData,
+      [inputName]: inputValue,
+    });
+  };
+
+
+  const handleSubmitLog = (ev) => {
+    ev.preventDefault();
+    object.callToApiLog(logData).then(({success, api_token}) => {
+      setLoggedIn(success);
+      if (success) {
+        object.getProfile(api_token).then((profile) => {
+          setUserName(profile);
+        });
+      }
+    });
+  };
+  
+
 
   useEffect(() => {
     object.getTeam().then((responseData) => {
@@ -144,10 +170,13 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} userName={userName} />
       <Routes>
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route
+          path="/login"
+          element={<LogIn handleLogData={handleLogData} handleSubmitLog={handleSubmitLog} />}
+        />
         <Route path="/contact" element={<Contact team={team} />} />
         <Route path="/contactform" element={<ContactForm />} />
         <Route path="/" element={<LandingPage formData={formData} />} />
