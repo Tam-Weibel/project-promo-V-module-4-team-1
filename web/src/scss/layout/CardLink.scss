@@ -6,7 +6,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
+  padding: 20px;
   &__text {
     color: $white;
   }
@@ -69,6 +70,16 @@
     }
   }
   
+}
+.linkedin {
+  padding: 5px;
+  border-radius: 5px;
+  background: #0077B5;
+  color: white;
+  &:hover {
+    color: $green;
+    transform: scale(1.1);
+  }
 }
 .hidden {
   display: none;
