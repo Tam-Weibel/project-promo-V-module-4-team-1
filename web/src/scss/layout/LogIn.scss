@@ -35,9 +35,25 @@
     }
   }
   
-
-  
   .btnLogIn {
     align-self: center;
+  }
+
+  .loginMessage{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
+    border-radius: 30px;
+    color: $violetborder;
+    font-family: $form;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 500px;
+    font-size: 16px;
+  }
+  .hidden {
+    display: none;
   }
   

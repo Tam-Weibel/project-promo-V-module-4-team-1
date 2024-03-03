@@ -67,6 +67,7 @@ function App() {
   };
 
   const [localToken, setLocalToken] = useState('');
+  const [loginError, setLoginError] = useState('hidden');
 
   const navigate = useNavigate();
 
@@ -81,6 +82,7 @@ function App() {
 
   const handleSubmitLog = (ev) => {
     ev.preventDefault();
+    setLoginError('hidden');
     object.callToApiLog(logData).then(({ success, token }) => {
       setLoggedIn(success);
       if (success) {
@@ -91,6 +93,9 @@ function App() {
         navigate('/cardProject');
         setLocalToken(token);
         localStorage.set('token', token);
+      } else {
+        setLoginError('');
+        return false;
       }
     });
   };
@@ -215,6 +220,7 @@ function App() {
             <LogIn
               handleLogData={handleLogData}
               handleSubmitLog={handleSubmitLog}
+              loginError={loginError}
             />
           }
         />

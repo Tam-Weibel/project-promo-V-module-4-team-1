@@ -223,7 +223,8 @@ server.post('/login', async (req, res) => {
 
     if (!(user && passwordCorrect)) {
       return res.status(401).json({
-        error: 'Invalid credentials',
+        success: false,
+        error: 'Invalid credentials'
       });
     }
     const userForToken = {

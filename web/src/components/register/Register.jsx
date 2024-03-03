@@ -1,9 +1,10 @@
 import '../../scss/layout/Main.scss';
 import '../../scss/layout/Btn.scss';
-import '../../scss/layout/SignIn.scss';
+import '../../scss/layout/Register.scss';
 import React from 'react';
 import object from '../../services/Api.js';
 import PropTypes from 'prop-types';
+import localStorage from '../../services/LocalStorage.js';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +31,6 @@ function Register({ setLoggedIn, setUserName }) {
   const handleSubmitSign = (ev) => {
     ev.preventDefault();
     object.callToApiSign(signInData).then((response) => {
-      // setSignInData(response);
       console.log('callto ApiSign me devuelve: ' + response.message)
       setReturnMessage(response.message);
       setIsDisabled(response.success);
