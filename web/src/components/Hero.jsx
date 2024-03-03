@@ -7,9 +7,8 @@ function Hero() {
     <div className="hero">
       <h1 className="hero__title"> PROYECTOS MOLONES </h1>
       <p className="hero__text">
-      Vitrina digital que te inspira a través de la tecnología.
+      La forma más fácil de organizar y compartir tus proyectos online.
       </p>
-
     </div>
   );
 }

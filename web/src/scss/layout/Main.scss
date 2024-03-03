@@ -3,7 +3,7 @@
     background-color: $violet;
     min-height: 83vh;
     text-align: center;
-    padding: 10px;
+    padding: 30px;
     &__container{
         display: flex;
         flex-direction: column;
@@ -11,7 +11,7 @@
         align-items: center;          
         @media (min-width: 768px) {
            flex-direction: row;
-           gap: 20px;
+           gap: 30px;
           }
     }
   }

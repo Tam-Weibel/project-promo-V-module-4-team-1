@@ -43,6 +43,10 @@
     color: $white;      
   }
 }
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  color: $violetborder;
+  }
 
 .hidden {
   display: none;
