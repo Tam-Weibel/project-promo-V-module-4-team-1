@@ -1,0 +1,59 @@
+@import "../core/Variables.scss";
+.logInTitle{
+    font-family: $form;
+    color: $white;
+}
+.logInForm {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 10px;
+    max-width: 768px;
+  }
+  
+  .labelLogIn {
+    font-family: $form;
+    color: $white;
+    padding-top: 10px;
+  }
+  
+  .inputLogIn {
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
+    border-radius: 40px;
+    height: 42.72px;
+    color: $greyishBrown;
+    padding-left: 15px;
+    width: 100%;
+    &::placeholder {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+  
+  .btnLogIn {
+    align-self: center;
+  }
+
+  .loginMessage{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: $violettwo;
+    border: solid 2px $violetborder;
+    border-radius: 10px;
+    color: $violetborder;
+    font-family: $form;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 500px;
+    font-size: 16px;
+  }
+  .hidden {
+    display: none;
+  }
+  

@@ -39,6 +39,6 @@ function Card({project}) {
 }
 Card.propTypes = {
     project: PropTypes.object.isRequired, 
-  };
+};
 
 export default Card
