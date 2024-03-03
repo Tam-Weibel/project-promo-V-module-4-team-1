@@ -151,7 +151,7 @@ function App() {
       }
     }
     
-  }, []);
+  }, [userData]);
 
   useEffect(() => {
     localStorage.set('user', {
