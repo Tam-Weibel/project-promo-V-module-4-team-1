@@ -8,13 +8,16 @@
   flex-wrap: wrap;
   gap: 40px;
   justify-content: space-evenly;
-  &__li{
+  &__li {
     padding-bottom: 40px;
   }
-  &__li:hover{
+  &__li:hover {
     transform: scale(1.1);
   }
 }
 
-
-
+.message {
+  color: $white;
+  font-size: 16px;
+  padding-top: 30px;
+}
