@@ -18,7 +18,7 @@ function Form({
   missingImage,
   setMissingImage
 }) {
-  const authorName = localstorage.get('user name');
+  const authorName = localStorage.get('user name');
   return (
     <form className="form" onSubmit={handleClickCreateCard}>
       <h2 className="form__h2">Información</h2>
