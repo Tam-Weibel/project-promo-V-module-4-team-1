@@ -56,11 +56,11 @@
   &__title{
     font-size: 16px;
     padding: 5px;
+    color: $violetborder;
   }
   &__link{
     color: $violetborder;
     font-size: 18px;
-    
   }
   &__link:hover{
     color: $green;
