@@ -38,7 +38,7 @@ function Register({ setLoggedIn, setUserName }) {
         setLoggedIn(true);
         setUserName(signInData.username);
         localStorage.set('user name', signInData.username);
-        localStorage.set('token', token);
+        localStorage.set('token', response.token);
       } else {
         setLoggedIn(false);
       }
