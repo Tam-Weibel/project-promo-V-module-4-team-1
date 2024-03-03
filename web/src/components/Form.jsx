@@ -3,6 +3,7 @@ import '../scss/layout/Form.scss';
 import '../scss/layout/Btn.scss';
 import CardLink from './CardLink.jsx';
 import PropTypes from 'prop-types';
+import localStorage from '../services/LocalStorage.js';
 
 function Form({
   handleInput,
@@ -17,6 +18,7 @@ function Form({
   missingImage,
   setMissingImage
 }) {
+  const authorName = localstorage.get('user name');
   return (
     <form className="form" onSubmit={handleClickCreateCard}>
       <h2 className="form__h2">Información</h2>
@@ -101,7 +103,7 @@ function Form({
         </section>
 
         <input
-          value={formData.nameAut}
+          value={authorName || formData.nameAut}
           onChange={handleInput}
           className="project__input"
           type="text"

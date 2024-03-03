@@ -150,8 +150,7 @@ function App() {
         setFormData(userData);
       }
     }
-    
-  }, [userData]);
+  }, []);
 
   useEffect(() => {
     localStorage.set('user', {
