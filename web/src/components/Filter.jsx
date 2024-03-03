@@ -47,12 +47,6 @@ function Filter({ loggedIn, setFilterText, setChecked, checked, filterText }) {
             checked={checked}
           />
         </div>
-
-
-        {/* <div className='radio'>
-          <label className="radio__label" htmlFor="">Todos los proyectos</label>
-          <input className="radio__selector" type="radio"  name="filterRadio" id="all" />
-        </div> */}
       </div>
     </form>
   );

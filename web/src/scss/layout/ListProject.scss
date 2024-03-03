@@ -17,7 +17,14 @@
 }
 
 .message {
-  color: $white;
+  color: $violetborder;
   font-size: 16px;
-  padding-top: 30px;
+  background-color: $violettwo;
+  border: solid 2px $violetborder;
+  border-radius: 10px;
+  font-family: $form;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 500px;
+  margin-top: 30px;
 }
