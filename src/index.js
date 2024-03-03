@@ -88,15 +88,6 @@ server.get('/detail/:id', async (req, res) => {
   });
 });
 
-const staticServer = './web/dist';
-server.use(express.static(staticServer));
-const staticServerCss = './src/public-css';
-server.use(express.static(staticServerCss));
-const staticServerImages = './src/public-image';
-server.use(express.static(staticServerImages));
-const staticServerJs = './src/public-js';
-server.use(express.static(staticServerJs));
-
 //SIGN IN AND LOG IN
 const generateToken = (payload) => {
   const token = jwt.sign(payload, 'secret_key');
@@ -277,3 +268,12 @@ server.put('/logout', async (req, res) => {
     }
   });
 });
+
+const staticServer = './src/public-react';
+server.use(express.static(staticServer));
+const staticServerCss = './src/public-css';
+server.use(express.static(staticServerCss));
+const staticServerImages = './src/public-image';
+server.use(express.static(staticServerImages));
+const staticServerJs = './src/public-js';
+server.use(express.static(staticServerJs));

@@ -20,12 +20,11 @@
   <body>
     <header class="header">
       <nav class="nav">
-        
         <a href="http://localhost:5173/#/" class="link">
           <i class="fa-solid fa-house nav__title"></i>
         </a>
         <div class="navBtn" id="navBtn">
-          <i class="fa-solid fa-bars navBtn_bars"></i>
+          <i class="fa-solid fa-bars navBtn_bars" id="icon"></i>
         </div>
       </nav>
       <ul class="hamburger" id="hamburger">
@@ -119,8 +118,11 @@
     <script>
       const navBtn = document.getElementById('navBtn');
       const hamburger = document.getElementById('hamburger');
+      const icon = document.getElementById('icon');
       navBtn.addEventListener('click', function () {
         hamburger.classList.toggle('isActive');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
       });
     </script>
   </body>
