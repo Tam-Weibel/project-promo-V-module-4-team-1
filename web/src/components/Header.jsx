@@ -31,7 +31,7 @@ function Header() {
         </li>
         <li className='hamburger__li'>
           <Link to='/listProject' className='link' onClick={toggleMenu}>
-            <h3>Mira tus tarjetas</h3>
+            <h3>Mira las tarjetas</h3>
           </Link>
         </li>
         <li className='hamburger__li'>
