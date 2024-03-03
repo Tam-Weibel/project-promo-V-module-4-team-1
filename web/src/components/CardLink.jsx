@@ -5,8 +5,6 @@ function CardLink({ cardLink, hideCardLink }) {
   let showLoader = cardLink === '' ? '' : 'hidden';
   let showMessage = cardLink !== '' ? '' : 'hidden';
   let url = encodeURIComponent(cardLink);
-  console.log(cardLink);
-  console.log(url);
   return (
     <section className={`cardLink ${hideCardLink}`}>
       <span className={`cardLink__text ${showMessage}`}>
@@ -25,6 +23,7 @@ function CardLink({ cardLink, hideCardLink }) {
       <a
         className={`linkedin ${showMessage}`}
         target='_blank'
+        rel="noreferrer"
         title='Share on LinkedIn'
         href={`http://www.linkedin.com/shareArticle?mini=true&url=${url}`}
       >

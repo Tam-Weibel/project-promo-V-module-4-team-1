@@ -134,86 +134,119 @@ server.get('/ruta-protegida', authenticateToken, (req, res) => {
 
 //  Crear endpoints -->
 server.post('/register', async (req, res) => {
-  const password = req.body.userpassword;
-  console.log(password);
-  console.log(req.body.password);
-  const passwordHash = await bcrypt.hash(password, 10);
-  console.log(passwordHash);
-  let resultUser = {
-    username: req.body.username,
-    email: req.body.email,
-    userpassword: passwordHash,
-  };
-
-  console.log(req.body);
-
-  const sql =
-    'INSERT INTO users (username, email, userpassword) values ( ?, ?, ?)';
-
-  jwt.sign(resultUser, 'secret_key', async (err, token) => {
-    if (err) {
-      res.status(400).send({ msg: 'Error' });
+  try {
+    const password = req.body.userpassword;
+    const passwordHash = await bcrypt.hash(password, 10);
+    const email = req.body.email;
+    console.log(email);
+    const conex = await getDB();
+    const registeredEmail = await conex.query('SELECT * FROM users WHERE email= "?"');
+    if (registeredEmail === email) {
+      return res.status(400).json({ msg: 'User already exists' });
     } else {
-      const conex = await getDB();
-      const [results] = await conex.query(sql, [
-        resultUser.username,
-        resultUser.email,
-        resultUser.userpassword,
-      ]);
-      conex.end();
-      //Si todo sale bien, se envía una respuesta JSON con un mensaje de éxito, el token JWT y el insertId,
-      //que es el ID del usuario recién insertado en la base de datos.
-      res.json({ msg: 'success', token: token, id: results.insertId });
+      let resultUser = {
+        username: req.body.username,
+        email: req.body.email,
+        userpassword: passwordHash,
+      };
+      const sql =
+        'INSERT INTO users (username, email, userpassword) values ( ?, ?, ?)';
+  
+      jwt.sign(resultUser, 'secret_key', async (err, token) => {
+        if (err) {
+          res.status(400).send({ msg: 'Error' });
+        } else {
+          const conex = await getDB();
+          const [results] = await conex.query(sql, [
+            resultUser.username,
+            resultUser.email,
+            resultUser.userpassword,
+          ]);
+          conex.end();
+          res.json({ 
+          message: 'Now you are register', 
+          token: token,
+          id: results.insertId });
+        }
+      });
     }
-  });
+  } catch (error) {
+    return res.status(500).json({
+      message: 'Internal error server at register',
+      error: error.message,
+    });
+  }
 });
 
-server.post('/login', async (request, response) => {
-  //recibe el cuerpo de la solicitud, que debería contener el nombre de usuario y la contraseña.
-  const body = request.body;
-  console.log(request.body);
-  //Buscar si el usuario existe en la bases de datos
+server.post('/login', async (req, res) => {
+try{
+  const body = req.body;
   const sql = `SELECT * FROM users WHERE email= ?`;
   const connection = await getDB();
-  console.log(body.email);
-  const [users, fields] = await connection.query(sql, [body.email]);
-  console.log(users);
-  connection.end();
-  const user = users[0];
-  console.log(user);
 
-  //Comprueba si el usuario existe y si la contraseña proporcionada es correcta utilizando bcrypt.compare.
+  const [users] = await connection.query(sql, [body.email]);
+  connection.end();
+
+  const user = users[0];
+
   const passwordCorrect =
     user === null
       ? false
       : await bcrypt.compare(body.userpassword, user.userpassword);
 
-  //Si el usuario no existe o la contraseña es incorrecta, responde con un estado 401 y un mensaje de error.
   if (!(user && passwordCorrect)) {
-    return response.status(401).json({
-      error: 'Credenciales inválidas',
+    return res.status(401).json({
+      error: 'Invalid credentials',
     });
   }
-
-  //Si las credenciales son correctas, se prepara un objeto userForToken que incluye el username y el id del usuario.
   const userForToken = {
     email: user.email,
     id: user.id,
   };
-
-  //Crear el token para enviar al front
   const token = generateToken(userForToken);
-
-  //Finalmente, si todo es correcto, la función responde con un estado 200 y envía un objeto JSON con el token, el nombre de usuario y el nombre real del usuario.
-  response.status(200).json({ token, email: user.email });
+  res.status(200).json({ 
+    success: true,
+    message: 'Log in successful',
+    token: token, 
+    email: user.email });
+} catch (error) {
+  return res.status(500).json({
+    success: false,
+    message: 'Internal error server at login',
+    error: error.message,
+  });
+};
 });
+
 server.get('/profile', authenticateToken, async (req, res) => {
+try{
   let sql = `SELECT * FROM users WHERE email= ?`;
   const connect = await getDB();
   const [profile] = await connect.query(sql, [req.user.email]);
   connect.end();
-  const response = {
-    profile: profile,
-  };
-  res.json(response);
+  
+  console.log(profile);
+  res.json(
+    {message: 'Profile accesible',
+    profile: profile[0]});
+} catch {
+  return res.status(500).json({
+    message: 'Internal error server at get to profile',
+    error: error.message,
+  });
+}
+});
+
+server.put('/logout', async (req, res) => {
+  const authHeader = req.headers["authorization"];
+  jwt.sign(authHeader, "", {expiresIn: 1}, (logout, error) => {
+    if (logout) {
+      res.status(200).json({
+        message: 'You have been disconnected',
+        error: error, 
+      })
+    } else { 
+      res.send ({ message: "Error"});
+    }
+  });
 });

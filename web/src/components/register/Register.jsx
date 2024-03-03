@@ -73,7 +73,7 @@ function Register() {
         </label>
         <input onChange={handleInput} className="inputSignIn" type="password" id="password" name='userpassword' />
 
-        <input className="btn btnSignIn" type="submit" value="Enviar"></input>
+        <input className="btn btnSignIn" type="submit" value="Registrarse"></input>
       </form>
      
     </main>

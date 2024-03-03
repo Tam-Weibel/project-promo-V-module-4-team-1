@@ -50,7 +50,8 @@ const getTeam = () => {
 };
 
 //SignIn y LogIn
-let api_token = "";
+
+
 
 const callToApiSign = (signInData) => {
     return fetch ("http://localhost:5001/register", {
@@ -77,15 +78,18 @@ const callToApiLog = (logData) => {
     })
     .then((response) => response.json())
     .then((response) => {
-        api_token = response.token;
-        return (response);        
+        console.log(response.token);
+        console.log(response.success);
+        return (
+            {success: response.success, 
+            token: response.token});        
     })
     .catch((error)=> {
         console.error("Error calling API:", error);  
     });
 };
 
-const getProfile = () => {
+const getProfile = (api_token) => {
     return fetch ("http://localhost:5001/profile", 
     {
      method: 'GET',
@@ -95,11 +99,27 @@ const getProfile = () => {
      }})
      .then(response => response.json())
      .then(response => {
-         console.log('Server response:', response);
- 
+        console.log('Server response:', response); 
+       return response.profile.username;   
      })
  }
 
-const object = {callToApi: callToApi, getProjects: getProjects, getTeam: getTeam, callToApiSign: callToApiSign, callToApiLog: callToApiLog, getProfile: getProfile} 
+const logOut = () => {
+    return fetch ("http://localhost:5001/logout",
+    {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': ''
+        }})
+        .then(response => response.json())
+        .then(response => {
+           console.log('Server response:', response); 
+           
+          return false ; 
+    })
+}
+
+const object = {callToApi: callToApi, getProjects: getProjects, getTeam: getTeam, callToApiSign: callToApiSign, callToApiLog: callToApiLog, getProfile: getProfile, logOut:logOut} 
 
 export default object;
