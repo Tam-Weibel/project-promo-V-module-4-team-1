@@ -82,7 +82,10 @@ server.get('/detail/:id', async (req, res) => {
 
   conex.end();
 
-  res.render('detail', { project: resultProject[0], cardURL: `http://localhost:5001/detail/${id}` });
+  res.render('detail', {
+    project: resultProject[0],
+    cardURL: `http://localhost:5001/detail/${id}`,
+  });
 });
 
 const staticServer = './web/dist';
@@ -138,115 +141,138 @@ server.post('/register', async (req, res) => {
     const password = req.body.userpassword;
     const passwordHash = await bcrypt.hash(password, 10);
     const email = req.body.email;
-    console.log(email);
     const conex = await getDB();
-    const registeredEmail = await conex.query('SELECT * FROM users WHERE email= "?"');
-    if (registeredEmail === email) {
-      return res.status(400).json({ msg: 'User already exists' });
+    const userExistsQuery = 'SELECT * FROM users WHERE email = ?';
+    const [registeredEmail] = await conex.query(userExistsQuery, [email]);
+
+    console.log(registeredEmail);
+
+    if (registeredEmail.length > 0 && registeredEmail[0].email === email) {
+      return res.status(400).json({
+        success: false,
+        message: 'Ya existe un usuario con ese email. Por favor compruebe los datos introducidos.',
+      });
     } else {
       let resultUser = {
         username: req.body.username,
         email: req.body.email,
         userpassword: passwordHash,
       };
-      const sql =
-        'INSERT INTO users (username, email, userpassword) values ( ?, ?, ?)';
-  
+
+      const insertUserQuery =
+        'INSERT INTO users (username, email, userpassword) VALUES (?, ?, ?)';
+
       jwt.sign(resultUser, 'secret_key', async (err, token) => {
         if (err) {
-          res.status(400).send({ msg: 'Error' });
+          res.status(400).send({
+            success: false,
+            message: 'Error del sistema. Por favor, introduzca de nuevo los datos.',
+          });
         } else {
-          const conex = await getDB();
-          const [results] = await conex.query(sql, [
-            resultUser.username,
-            resultUser.email,
-            resultUser.userpassword,
-          ]);
-          conex.end();
-          res.json({ 
-          message: 'Now you are register', 
-          token: token,
-          id: results.insertId });
+          try {
+            // Move user creation logic inside the else block
+            const [results] = await conex.query(insertUserQuery, [
+              resultUser.username,
+              resultUser.email,
+              resultUser.userpassword,
+            ]);
+
+            conex.end();
+
+            res.json({
+              success: true,
+              message: 'Tu usuari@ ha sido creado correctamente!',
+              token: token,
+              id: results.insertId,
+            });
+          } catch (error) {
+            res.status(500).json({
+              success: false,
+              message: 'Error del sistema. Por favor, introduzca de nuevo los datos.',
+              error: error.message,
+            });
+          }
         }
       });
     }
   } catch (error) {
     return res.status(500).json({
-      message: 'Internal error server at register',
+      success: false,
+      message: 'Error del sistema. Por favor, introduzca de nuevo los datos.',
       error: error.message,
     });
   }
 });
 
+
 server.post('/login', async (req, res) => {
-try{
-  const body = req.body;
-  const sql = `SELECT * FROM users WHERE email= ?`;
-  const connection = await getDB();
+  try {
+    const body = req.body;
+    const sql = `SELECT * FROM users WHERE email= ?`;
+    const connection = await getDB();
 
-  const [users] = await connection.query(sql, [body.email]);
-  connection.end();
+    const [users] = await connection.query(sql, [body.email]);
+    connection.end();
 
-  const user = users[0];
+    const user = users[0];
 
-  const passwordCorrect =
-    user === null
-      ? false
-      : await bcrypt.compare(body.userpassword, user.userpassword);
+    const passwordCorrect =
+      user === null
+        ? false
+        : await bcrypt.compare(body.userpassword, user.userpassword);
 
-  if (!(user && passwordCorrect)) {
-    return res.status(401).json({
-      error: 'Invalid credentials',
+    if (!(user && passwordCorrect)) {
+      return res.status(401).json({
+        error: 'Invalid credentials',
+      });
+    }
+    const userForToken = {
+      email: user.email,
+      id: user.id,
+    };
+    const token = generateToken(userForToken);
+    res.status(200).json({
+      success: true,
+      message: 'Log in successful',
+      token: token,
+      email: user.email,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: 'Internal error server at login',
+      error: error.message,
     });
   }
-  const userForToken = {
-    email: user.email,
-    id: user.id,
-  };
-  const token = generateToken(userForToken);
-  res.status(200).json({ 
-    success: true,
-    message: 'Log in successful',
-    token: token, 
-    email: user.email });
-} catch (error) {
-  return res.status(500).json({
-    success: false,
-    message: 'Internal error server at login',
-    error: error.message,
-  });
-};
 });
 
 server.get('/profile', authenticateToken, async (req, res) => {
-try{
-  let sql = `SELECT * FROM users WHERE email= ?`;
-  const connect = await getDB();
-  const [profile] = await connect.query(sql, [req.user.email]);
-  connect.end();
-  
-  console.log(profile);
-  res.json(
-    {message: 'Profile accesible',
-    profile: profile[0]});
-} catch {
-  return res.status(500).json({
-    message: 'Internal error server at get to profile',
-    error: error.message,
-  });
-}
+  try {
+    let sql = `SELECT * FROM users WHERE email= ?`;
+    const connect = await getDB();
+    const [profile] = await connect.query(sql, [req.user.email]);
+    connect.end();
+
+    console.log(profile);
+    res.json({ message: 'Profile accesible', profile: profile[0] });
+  } catch {
+    return res.status(500).json({
+      message: 'Internal error server at get to profile',
+      error: error.message,
+    });
+  }
 });
 
 server.put('/logout', async (req, res) => {
-  const authHeader = req.headers["authorization"];
-  jwt.sign(authHeader, "", {expiresIn: 1}, (logout, error) => {
+  const authHeader = req.headers['authorization'];
+  jwt.sign(authHeader, '', { expiresIn: 1 }, (logout, error) => {
     if (logout) {
       res.status(200).json({
         message: 'You have been disconnected',
-        error: error, 
-      })
-    } else { 
-      res.send ({ message: "Error"});
+        error: error,
+      });
+    } else {
+      res.send({ message: 'Error' });
     }
   });
 });

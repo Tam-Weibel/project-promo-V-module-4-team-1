@@ -3,11 +3,11 @@ import '../../scss/layout/Btn.scss';
 import '../../scss/layout/SignIn.scss';
 import React from 'react';
 import object from '../../services/Api.js';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function Register() {
-  console.log('pintate');
-
+function Register({ setLoggedIn, setUserName }) {
   const [signInData, setSignInData] = useState({
     username: '',
     email: '',
@@ -23,61 +23,101 @@ function Register() {
     });
   };
   console.log(signInData);
-
+  const [returnMessage, setReturnMessage] = useState('');
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [showMessage, setShowMessage] = useState('hidden');
+  const [showLink, setShowLink] = useState('');
   const handleSubmitSign = (ev) => {
-    console.log("Estoy dentro de handle1");
     ev.preventDefault();
     object.callToApiSign(signInData).then((response) => {
-      setSignInData(response);
+      // setSignInData(response);
+      console.log('callto ApiSign me devuelve: ' + response.message)
+      setReturnMessage(response.message);
+      setIsDisabled(response.success);
+      setShowMessage('');
+      setShowLink(response.success ? '' : 'hidden');
+      if (response.success) {
+        setLoggedIn(true);
+        setUserName(signInData.username);
+        localStorage.set('user name', signInData.username);
+      } else {
+        setLoggedIn(false);
+      }
     });
-    console.log("Estoy dentro de handle2");
   };
+  useEffect(() => {
+    return () => {
+      setReturnMessage('');
+      setIsDisabled(false);
+      setShowMessage('hidden');
+      setShowLink('');
+    };
+  }, []);
 
   return (
-    <main className="main">
-      <h1 className="signInTitle">REGISTRATE</h1>
+    <main className='main'>
+      <h1 className='signInTitle'>REGISTRATE</h1>
 
-      <form action='#' className="signInForm" onSubmit={handleSubmitSign}>
-        <label htmlFor="name" className="labelSignIn">
-          Nombre completo 
+      <form action='#' className='signInForm' onSubmit={handleSubmitSign}>
+        <label htmlFor='name' className='labelSignIn'>
+          Nombre completo
         </label>
         <input
           onChange={handleInput}
-          className="inputSignIn"
-          type="text"
-          id="name"
-          placeholder="Nombre Apellidos"
+          className='inputSignIn'
+          type='text'
+          id='name'
+          placeholder='Nombre Apellidos'
           name='username'
           required
+          disabled={isDisabled}
         />
 
-        <label htmlFor="email" className="labelSignIn">
+        <label htmlFor='email' className='labelSignIn'>
           Email
         </label>
         <input
           onChange={handleInput}
-          className="inputSignIn"
-          type="email"
-          id="email"
-          placeholder="nombre.apellidos@mail.com"
+          className='inputSignIn'
+          type='email'
+          id='email'
+          placeholder='nombre.apellidos@mail.com'
           name='email'
           required
+          disabled={isDisabled}
         />
 
-        <label
-          htmlFor="password"
-          className="labelSignIn"
-          
-        >
+        <label htmlFor='password' className='labelSignIn'>
           Password
         </label>
-        <input onChange={handleInput} className="inputSignIn" type="password" id="password" name='userpassword' />
+        <input
+          onChange={handleInput}
+          className='inputSignIn'
+          type='password'
+          id='password'
+          name='userpassword'
+          disabled={isDisabled}
+        />
 
-        <input className="btn btnSignIn" type="submit" value="Registrarse"></input>
+        <input
+          className='btn btnSignIn'
+          type='submit'
+          value='Registrarse'
+        ></input>
       </form>
-     
+      <div className={`returnMessage ${showMessage}`}>
+        <p className='returnMessage__title'>{returnMessage}</p>
+        <p className={showLink}>
+          <Link to="/cardProject" className="returnMessage__link">Crea</Link> tu primera tarjeta de proyecto.</p>
+        <p className={showLink}><Link to="/listProject" className="returnMessage__link">Mira las tarjetas</Link> de nuestros usuarios.</p>
+      </div>
     </main>
   );
 }
+
+Register.propTypes = {
+  setLoggedIn: PropTypes.func.isRequired,
+  setUserName: PropTypes.func.isRequired
+};
 
 export default Register;

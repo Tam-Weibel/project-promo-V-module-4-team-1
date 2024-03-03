@@ -208,7 +208,7 @@ function App() {
         menu={menu}
       />
       <Routes>
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register setLoggedIn={setLoggedIn} setUserName={setUserName}/>} />
         <Route
           path="/login"
           element={
