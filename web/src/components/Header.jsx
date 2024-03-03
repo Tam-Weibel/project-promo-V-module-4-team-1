@@ -31,7 +31,7 @@ function Header({loggedIn, userName, handleLogOut, toggleMenu, menu}) {
       <ul className={`hamburger ${menu ? 'isActive' : ''}`}>
         <li className={`hamburger__li ${loggedInMenu}`}>
           <Link to="/register" className="link" onClick={toggleMenu}>
-            <h3>Registrate</h3>
+            <h3>Regístrate</h3>
           </Link>
         </li>
         <li className={`hamburger__li ${loggedInMenu}`}>
