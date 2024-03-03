@@ -24,10 +24,20 @@
           <i class="fa-solid fa-house nav__title"></i>
         </a>
         <div class="navBtn" id="navBtn">
-          <i class="fa-solid fa-bars navBtn_bars"></i>
+          <i class="fa-solid fa-bars navBtn_bars" id="icon"></i>
         </div>
       </nav>
       <ul class="hamburger" id="hamburger">
+        <li class="hamburger__li">
+          <a href="http://localhost:5173/#/register" class="link" >
+            <h3>Regístrate</h3>
+          </a>
+        </li>
+        <li class="hamburger__li">
+          <a href="http://localhost:5173/#/login" class="link" >
+            <h3>Iniciar sesión</h3>
+          </a>
+        </li>
         <li class="hamburger__li">
           <a href="http://localhost:5173/#/cardProject" class="link">
             <h3>Crea tu tarjeta</h3>
@@ -35,7 +45,7 @@
         </li>
         <li class="hamburger__li">
           <a href="http://localhost:5173/#/listProject" class="link">
-            <h3>Mira tus tarjetas</h3>
+            <h3>Mira las tarjetas</h3>
           </a>
         </li>
         <li class="hamburger__li">
@@ -90,6 +100,16 @@
           </article>
         </div>
       </section>
+      <div>
+        <a
+          class="linkedin"
+          target="_blank"
+          title="Share on LinkedIn"
+          href="http://www.linkedin.com/shareArticle?mini=true&url=<%= cardURL %>"
+        >
+          Compartir en Linked<i class="fa fa-linkedin"></i>
+        </a>
+      </div>
     </main>
     <footer class="footer">
       <p class="footer__copy">©Cookie Team 2024</p>
@@ -98,8 +118,11 @@
     <script>
       const navBtn = document.getElementById('navBtn');
       const hamburger = document.getElementById('hamburger');
+      const icon = document.getElementById('icon');
       navBtn.addEventListener('click', function () {
         hamburger.classList.toggle('isActive');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
       });
     </script>
   </body>
