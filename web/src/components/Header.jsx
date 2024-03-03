@@ -12,8 +12,7 @@ function Header({loggedIn, userName, handleLogOut, toggleMenu, menu}) {
   let loggedInMenu = loggedIn === true ? 'hidden' : '';
   let notLoggedIn = loggedIn === false ? 'hidden' : '';
 
- 
-  
+  let bars = menu === false ? 'bars' : 'xmark';
 
   return (
     <header className="header">
@@ -24,7 +23,7 @@ function Header({loggedIn, userName, handleLogOut, toggleMenu, menu}) {
         <div className='nav__menu'>
           <p className={`welcome ${notLoggedIn}`}>{`Bienvenida, ${userName}`}</p>
           <nav onClick={toggleMenu} className="navBtn">
-            <i className="fa-solid fa-bars navBtn_bars"></i>
+            <i className={`fa-solid fa-${bars} navBtn_bars`}></i>
           </nav>
         </div>
       </nav>
