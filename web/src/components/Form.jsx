@@ -18,7 +18,8 @@ function Form({
   missingImage,
   setMissingImage
 }) {
-  const authorName = localStorage.get('user name');
+  // const storedName = localStorage.get('user name');
+  // const authorName = storedname !== '' ? storedName: formData.nameAut;
   return (
     <form className="form" onSubmit={handleClickCreateCard}>
       <h2 className="form__h2">Información</h2>
@@ -103,7 +104,7 @@ function Form({
         </section>
 
         <input
-          value={authorName || formData.nameAut}
+          value={formData.nameAut}
           onChange={handleInput}
           className="project__input"
           type="text"

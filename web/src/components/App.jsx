@@ -144,10 +144,13 @@ function App() {
   };
 
   useEffect(() => {
-    if (userName){
-      userData.nameAut = userName;
-      if (userData) {
-        setFormData(userData);
+    if (userData) {
+      setFormData(userData);
+      if(userName !== ''){
+        formData.nameAut = userName;
+        localStorage.set('user', {
+          nameAut: userName
+        })
       }
     }
   }, []);

@@ -57,8 +57,8 @@ ListProject.propTypes = {
   projectList: PropTypes.array.isRequired,
   loggedIn: PropTypes.bool.isRequired,
   userName:PropTypes.string.isRequired,
-  setChecked: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired,
+  setChecked: PropTypes.func,
+  checked: PropTypes.bool,
 };
 
 export default ListProject;
