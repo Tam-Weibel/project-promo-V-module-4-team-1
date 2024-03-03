@@ -144,9 +144,13 @@ function App() {
   };
 
   useEffect(() => {
-    if (userData) {
-      setFormData(userData);
+    if (userName){
+      userData.nameAut = userName;
+      if (userData) {
+        setFormData(userData);
+      }
     }
+    
   }, []);
 
   useEffect(() => {
