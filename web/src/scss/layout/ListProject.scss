@@ -8,13 +8,23 @@
   flex-wrap: wrap;
   gap: 40px;
   justify-content: space-evenly;
-  &__li{
+  &__li {
     padding-bottom: 40px;
   }
-  &__li:hover{
+  &__li:hover {
     transform: scale(1.1);
   }
 }
 
-
-
+.message {
+  color: $violetborder;
+  font-size: 16px;
+  background-color: $violettwo;
+  border: solid 2px $violetborder;
+  border-radius: 10px;
+  font-family: $form;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 500px;
+  margin-top: 30px;
+}

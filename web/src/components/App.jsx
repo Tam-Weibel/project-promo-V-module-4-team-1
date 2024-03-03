@@ -251,7 +251,7 @@ function App() {
         />
         <Route
           path="/listProject"
-          element={<ListProject projectList={projectList} loggedIn={loggedIn} />}
+          element={<ListProject projectList={projectList} loggedIn={loggedIn} userName={userName}/>}
         />
       </Routes>
       <Footer />
